@@ -1,5 +1,5 @@
 <!-- ヘッダーを取得 -->
-<?php get_header(); ?>
+<?php get_template_part("parts/header/header"); ?>
 
 <main>
 
@@ -8,7 +8,7 @@
 
 </footer>
 
-<?php wp_footer(); ?>
+<?php get_template_part("parts/footer/footer"); ?>
 
 </body>
 
