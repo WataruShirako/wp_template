@@ -10,13 +10,6 @@ $home = esc_url(home_url());
 <main data-barba="container" data-barba-namespace="contact">
 
 
-    <div class="noise">
-        <div class="noise__item1"></div>
-        <div class="noise__item2"></div>
-        <div class="noise__item3"></div>
-    </div>
-
-
     <div class="wrapper">
         <!-- <div class="scrollable"> -->
         <div class="container">
@@ -27,9 +20,7 @@ $home = esc_url(home_url());
         </div>
         <!-- </div> -->
     </div>
-    <div class="webgl-canvas">
-        <canvas id="webgl-canvas" class="webgl-canvas__body"></canvas>
-    </div>
+
 
 </main>
 

@@ -1,3 +1,7 @@
+<div class="webgl-canvas">
+    <canvas id="webgl-canvas" class="webgl-canvas__body"></canvas>
+</div>
+
 <footer>
 
 </footer>

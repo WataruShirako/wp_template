@@ -7,15 +7,7 @@ $home = esc_url(home_url());
 
 <?php get_template_part("parts/header/header"); ?>
 
-<main>
-
-
-    <div class="noise">
-        <div class="noise__item1"></div>
-        <div class="noise__item2"></div>
-        <div class="noise__item3"></div>
-    </div>
-
+<main data-barba="container" data-barba-namespace="archive-archivements" class="archive">
 
     <div class="wrapper">
         <!-- <div class="scrollable"> -->

@@ -15,11 +15,11 @@ add_action('init', 'create_post_type');
 function create_post_type()
 {
     register_post_type(
-        'project', // 投稿タイプ名の定義
+        'archivements', // 投稿タイプ名の定義
         array(
             'labels' => array(
                 'name' => __('制作事例'), // 表示する投稿タイプ名
-                'singular_name' => __('project')
+                'singular_name' => __('archivements')
             ),
             'public' => true,
             'menu_position' => 5,
