@@ -17,6 +17,7 @@ $home = esc_url(home_url());
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@barba/core"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script type="importmap">
         {
 		"imports": {

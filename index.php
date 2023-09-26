@@ -20,27 +20,28 @@ $home = esc_url(home_url());
     <div class="wrapper">
         <div class="container fv">
             <p>NORAS INC.</p>
+            <canvas id="fvCanvas"></canvas>
         </div>
         <div class="container">
-            <ul class="image-list">
-                <li class="image-item">
-                    <a href="" class="image-wrapper">
+            <ul class="image__list">
+                <li class="image__item">
+                    <a href="" class="image__wrapper">
                         <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
                         <p>こんてな</p>
                     </a>
                 </li>
-                <li class="image-item">
-                    <a href="" class="image-wrapper">
+                <li class="image__item">
+                    <a href="" class="image__wrapper">
                         <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
                     </a>
                 </li>
-                <li class="image-item">
-                    <a href="" class="image-wrapper">
+                <li class="image__item">
+                    <a href="" class="image__wrapper">
                         <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
                     </a>
                 </li>
-                <li class="image-item">
-                    <a href="" class="image-wrapper">
+                <li class="image__item">
+                    <a href="" class="image__wrapper">
                         <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
                     </a>
                 </li>

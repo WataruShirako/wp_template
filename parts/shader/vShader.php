@@ -1,6 +1,7 @@
-<script id="v-shader" type="x-shader/x-vertex">
-    varying vec2 vUv;
+    <script id="v-shader" type="x-shader/x-vertex">
+        varying vec2 vUv;
       uniform float uTime;
+      
 
       float PI = 3.1415926535897932384626433832795;
 

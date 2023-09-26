@@ -152,12 +152,3 @@ const main = () => {
 };
 
 main();
-
-const addHoverEffect = (img, mesh) => {
-  img.addEventListener('mouseover', () => {
-    mesh.position.z += 50; // ホバー時にZ座標を前に50移動
-  });
-  img.addEventListener('mouseout', () => {
-    mesh.position.z -= 50; // ホバー終了時にZ座標を元に戻す
-  });
-};
