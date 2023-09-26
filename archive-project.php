@@ -7,7 +7,7 @@ $home = esc_url(home_url());
 
 <?php get_template_part("parts/header/header"); ?>
 
-<main data-barba="container" data-barba-namespace="home">
+<main>
 
 
     <div class="noise">
@@ -18,9 +18,7 @@ $home = esc_url(home_url());
 
 
     <div class="wrapper">
-        <div class="container fv">
-            <p>NORAS INC.</p>
-        </div>
+        <!-- <div class="scrollable"> -->
         <div class="container">
             <ul class="image-list">
                 <li class="image-item">
@@ -49,10 +47,12 @@ $home = esc_url(home_url());
         <div style="height:100vh;">
             <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="">
         </div>
+        <!-- </div> -->
     </div>
     <div class="webgl-canvas">
         <canvas id="webgl-canvas" class="webgl-canvas__body"></canvas>
     </div>
+
 
 </main>
 
