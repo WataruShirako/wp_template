@@ -1,5 +1,5 @@
-<script id="f-shader" type="x-shader/x-fragment">
-  varying vec2 vUv;
+<script id="f-shader-slide" type="x-shader/x-fragment">
+    varying vec2 vUv;
       uniform sampler2D uTexture;
       uniform float uImageAspect;
       uniform float uPlaneAspect;
@@ -18,7 +18,7 @@
           (vUv.y - 0.5) * ratio.y + 0.5
         );
 
-        vec2 offset = vec2(0.0, uTime * 0.0008);
+        vec2 offset = vec2(0.0, uTime * 0.0003);
         float r = texture2D(uTexture, fixedUv + offset).r;
         float g = texture2D(uTexture, fixedUv + offset * 0.5).g;
         float b = texture2D(uTexture, fixedUv).b;

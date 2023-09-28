@@ -1,4 +1,4 @@
-    <script id="v-shader" type="x-shader/x-vertex">
+    <script id="v-shader-slide" type="x-shader/x-vertex">
       varying vec2 vUv;
       uniform float uTime;
 
@@ -11,10 +11,10 @@
 
           // 横方向
           float amp = 0.03; // 振幅（の役割） 大きくすると波が大きくなる
-          float freq = 0.01 * uTime; // 振動数（の役割） 大きくすると波が細かくなる
+          float freq = 0.05 * uTime; // 振動数（の役割） 大きくすると波が細かくなる
 
           // 縦方向
-          float tension = -0.0015 * uTime; // 上下の張り具合
+          float tension = -0.0001 * uTime; // 上下の張り具合
 
           pos.x = pos.x + sin(pos.y * PI  * freq) * amp;
           pos.y = pos.y + (cos(pos.x * PI) * tension);
