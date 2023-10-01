@@ -210,12 +210,12 @@ body {
 .caption__text {
   color: white;
   opacity: 0.5;
-  font-size: 0.85rem;
+  font-size: small;
 }
 
 .section__title {
   display: block;
-  font-size: 1rem;
+  font-size: normal;
   letter-spacing: 5px;
   color: #ffffff;
   opacity: 0.6;
@@ -226,7 +226,7 @@ body {
 }
 
 .section__title span {
-  font-size: 0.85rem;
+  font-size: small;
   display: block;
   margin-top: 4px;
 }
@@ -383,7 +383,7 @@ body {
 }
 
 .arc__list__title {
-  font-size: 20px;
+  font-size: medium;
   font-weight: 400;
   letter-spacing: 2px;
 }
