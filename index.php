@@ -29,7 +29,7 @@ $home = esc_url(home_url());
             <ul class="arc__container container">
                 <li class="arc__list">
                     <a href="" class="arc__list__image__wrapper">
-                        <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
+                        <img class="sh__img" src="<?php echo $uri; ?>/assets/img/service/service_1.webp" alt="" />
                         <h3 class="arc__list__title">Sabak</h3>
                         <p class="caption__text">もう迷わない、プロジェクト管理ツール</p>
                     </a>
@@ -37,17 +37,19 @@ $home = esc_url(home_url());
                 </li>
                 <li class="arc__list">
                     <a href="" class="arc__list__image__wrapper">
-                        <img class="sh__img" src="https://source.unsplash.com/phIFdC6lA4E" alt="" />
-                        <h3 class="arc__list__title">APHRODiTE</h3>
-                        <p class="caption__text">YouTubeの台本を自動生成するアプリ。</p>
+                        <div class="sh__img__wrapper">
+                            <img class="sh__img" src="<?php echo $uri; ?>/assets/img/service/service_2.webp" alt="" />
+                        </div>
+                        <h3 class="arc__list__title">夢叶えるプロジェクト2024</h3>
+                        <p class="caption__text">ビジネス×クリエイターの祭典</p>
                     </a>
 
                 </li>
                 <li class="arc__list">
                     <a href="" class="arc__list__image__wrapper">
-                        <img class="sh__img" src="https://source.unsplash.com/uA2OC0NY5U8/" alt="" />
-                        <h3 class="arc__list__title">夢叶えるプロジェクト2024</h3>
-                        <p class="caption__text">ビジネス×クリエイターの祭典</p>
+                        <img class="sh__img" src="<?php echo $uri; ?>/assets/img/service/service_3.webp" alt="" />
+                        <h3 class="arc__list__title">APHRODiTE</h3>
+                        <p class="caption__text">YouTubeの台本を自動生成するアプリ。</p>
                     </a>
 
                 </li>
@@ -73,9 +75,9 @@ $home = esc_url(home_url());
             <div id="slider" class="container">
 
                 <div class="slider__img">
-                    <img class="s_img" src="https://source.unsplash.com/aUzU3h_ohQM/" />
-                    <img class="s_img" src="https://source.unsplash.com/uA2OC0NY5U8/" />
-                    <img class="s_img" src="https://source.unsplash.com/phIFdC6lA4E" />
+                    <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_1.webp" />
+                    <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_2.webp" />
+                    <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_3.webp" />
                     <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_4.webp" width="1280" height="720" />
                 </div>
 

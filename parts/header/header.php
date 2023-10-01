@@ -17,7 +17,7 @@ $home = esc_url(home_url());
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     <?php if (is_archive() || is_single()) : ?>
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/archive.css">
+        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/archive.css">
     <?php endif; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -25,7 +25,6 @@ $home = esc_url(home_url());
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/EasePack.min.js"></script>
     <script type="importmap">
         {
 		"imports": {
