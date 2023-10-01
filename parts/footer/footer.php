@@ -7,13 +7,16 @@
 </footer>
 
 <!-- imagePlane用のシェーダー -->
-<?php get_template_part("parts/shader/vShader"); ?>
-<?php get_template_part("parts/shader/fShader"); ?>
+<?php get_template_part("parts/shader/vShaderFv"); ?>
+<?php get_template_part("parts/shader/fShaderFv"); ?>
+
+<!-- imagePlane用のシェーダー -->
+<?php get_template_part("parts/shader/vShaderArc"); ?>
+<?php get_template_part("parts/shader/fShaderArc"); ?>
 
 <!-- slider用のシェーダー -->
 <?php get_template_part("parts/shader/vShaderSlide"); ?>
 <?php get_template_part("parts/shader/fShaderSlide"); ?>
-
 
 </body>
 

@@ -16,17 +16,16 @@ $home = esc_url(home_url());
     <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/noise.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-    <!-- archiveまたはsingleの時、archive.cssを読み込む -->
     <?php if (is_archive() || is_single()) : ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/archive.css">
+    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/archive.css">
     <?php endif; ?>
-
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.23/bundled/lenis.min.js"></script>
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@barba/core"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/EasePack.min.js"></script>
     <script type="importmap">
         {
 		"imports": {
@@ -35,7 +34,7 @@ $home = esc_url(home_url());
 	}
 </script>
 
-    <script defer src="<?php echo $uri; ?>/assets/js/three.js" type="module"></script>
+    <script defer src="<?php echo $uri; ?>/assets/js/three/main.js" type="module"></script>
     <script defer src="<?php echo $uri; ?>/assets/js/index.js"></script>
     <?php wp_head(); ?>
 </head>
@@ -50,15 +49,11 @@ $home = esc_url(home_url());
                     <img src="<?php echo $uri; ?>/assets/img/logo.svg" alt="ノラスのロゴ">
                 </a>
             </div>
-            <div class="header__nav pc">
-                <ul>
-                    <li><a href="<?php echo $home; ?>/about">会社概要</a></li>
-                    <li><a href="<?php echo $home; ?>/service">事業内容</a></li>
-                    <li><a href="<?php echo $home; ?>/archivements">制作事例</a></li>
-                    <li><a class="contactBtn" href="<?php echo $home; ?>/contact">お問い合わせ</a></li>
-                </ul>
+            <div class="header__nav">
+                <p>\ MENU \</p>
             </div>
     </header>
+
 
     <div class="noise">
         <div class="noise__item1"></div>

@@ -27,4 +27,4 @@
 
         gl_FragColor = vec4(texture, 1.0);
       }
-    </script>
+</script>

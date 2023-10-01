@@ -1,24 +1,25 @@
     <script id="v-shader-slide" type="x-shader/x-vertex">
       varying vec2 vUv;
-      uniform float uTime;
+        uniform float uTime;
+        uniform float shakeIntensity; // 新しいuniform変数
 
+        float PI = 3.1415926535897932384626433832795;
 
-      float PI = 3.1415926535897932384626433832795;
+        void main(){
+            vUv = uv;
+            vec3 pos = position;
 
-      void main(){
-          vUv = uv;
-          vec3 pos = position;
+            // 横方向
+            float amp = 0.002 + shakeIntensity; // 振幅をshakeIntensityで一時的に増やす
+            float freq = 0.07 * uTime + shakeIntensity; // 振動数
 
-          // 横方向
-          float amp = 0.03; // 振幅（の役割） 大きくすると波が大きくなる
-          float freq = 0.05 * uTime; // 振動数（の役割） 大きくすると波が細かくなる
+            // 縦方向
+            float tens = -0.0006 * uTime - shakeIntensity; // 上下の張り具合
 
-          // 縦方向
-          float tension = -0.0001 * uTime; // 上下の張り具合
+            pos.x = pos.x + sin(pos.y * PI * freq) * amp;
+            pos.y = pos.y + (cos(pos.x * PI) * tens);
 
-          pos.x = pos.x + sin(pos.y * PI  * freq) * amp;
-          pos.y = pos.y + (cos(pos.x * PI) * tension);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+        }
 
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-      }
     </script>

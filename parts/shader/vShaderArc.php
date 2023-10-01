@@ -10,14 +10,14 @@
           vec3 pos = position;
 
           // 横方向
-          float amp = 0.03; // 振幅（の役割） 大きくすると波が大きくなる
-          float freq = 0.01 * uTime; // 振動数（の役割） 大きくすると波が細かくなる
+          float amp = 0.015; // 振幅
+          float freq = 0.015 * uTime; // 振動
 
           // 縦方向
-          float tension = -0.0015 * uTime; // 上下の張り具合
+          float tens = -0.00075 * uTime; // 上下のテンション
 
           pos.x = pos.x + sin(pos.y * PI  * freq) * amp;
-          pos.y = pos.y + (cos(pos.x * PI) * tension);
+          pos.y = pos.y + (cos(pos.x * PI) * tens);
 
           gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
       }

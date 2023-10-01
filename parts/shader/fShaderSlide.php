@@ -1,30 +1,37 @@
 <script id="f-shader-slide" type="x-shader/x-fragment">
     varying vec2 vUv;
-      uniform sampler2D uTexture;
-      uniform float uImageAspect;
-      uniform float uPlaneAspect;
-      uniform float uTime;
 
-      void main(){
-        // 画像のアスペクトとプレーンオブジェクトのアスペクトを比較し、短い方に合わせる
-        vec2 ratio = vec2(
-          min(uPlaneAspect / uImageAspect, 1.0),
-          min((1.0 / uPlaneAspect) / (1.0 / uImageAspect), 1.0)
-        );
+uniform sampler2D currentImage;
+uniform sampler2D nextImage;
+uniform float dispFactor;
+uniform vec2 orig1;
+uniform vec2 orig2;
+uniform float intensity;
 
-        // 計算結果を用いてテクスチャを中央に配置
-        vec2 fixedUv = vec2(
-          (vUv.x - 0.5) * ratio.x + 0.5,
-          (vUv.y - 0.5) * ratio.y + 0.5
-        );
+void main() {
+    vec2 uv = vUv;
 
-        vec2 offset = vec2(0.0, uTime * 0.0003);
-        float r = texture2D(uTexture, fixedUv + offset).r;
-        float g = texture2D(uTexture, fixedUv + offset * 0.5).g;
-        float b = texture2D(uTexture, fixedUv).b;
-        vec3 texture = vec3(r, g, b);
+    float maxOffset = 0.015;
+    vec2 offsetR = vec2(dispFactor * maxOffset, 0.0);
+    vec2 offsetG = vec2(-dispFactor * maxOffset, 0.0);
 
+    vec4 currColorR = texture2D(currentImage, uv + offsetR);
+    vec4 currColorG = texture2D(currentImage, uv + offsetG);
+    vec4 currColorB = texture2D(currentImage, uv);
 
-        gl_FragColor = vec4(texture, 1.0);
-      }
+    vec2 yOffset = vec2(0.0, (1.0 - dispFactor) * (orig1 * intensity) + dispFactor * (orig2 * intensity));
+
+    vec4 nextColorR = texture2D(nextImage, uv + yOffset + offsetR);
+    vec4 nextColorG = texture2D(nextImage, uv + yOffset + offsetG);
+    vec4 nextColorB = texture2D(nextImage, uv + yOffset);
+
+    vec4 mixedColor;
+    mixedColor.r = mix(currColorR.r, nextColorR.r, dispFactor);
+    mixedColor.g = mix(currColorG.g, nextColorG.g, dispFactor);
+    mixedColor.b = mix(currColorB.b, nextColorB.b, dispFactor);
+    mixedColor.a = 1.0;
+
+    gl_FragColor = mixedColor;
+}
+
     </script>
