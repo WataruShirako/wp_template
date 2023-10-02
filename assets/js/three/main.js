@@ -1,4 +1,4 @@
-import { scene, resize, setupScene, addEvents } from './setup.js';
+import { scene, resize, setupScene } from './setup.js';
 import { Fv, ImagePlane, Slider } from './classes.js';
 import { createFvMesh, createMesh, createSlideMesh } from './meshes.js';
 import { loop, imagePlaneArray, fvArray, slideImgArray } from './helpers.js';
@@ -9,7 +9,6 @@ export let mat;
 const init = () => {
   setupScene();
   resize();
-  // addEvents();
 
   window.addEventListener('load', () => {
     // fv

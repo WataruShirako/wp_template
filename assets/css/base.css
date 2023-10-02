@@ -34,6 +34,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 a:not([class]) {
   text-decoration-skip-ink: auto;
@@ -42,6 +43,7 @@ img,
 picture {
   max-width: 100%;
   display: block;
+  pointer-events: none;
 }
 input,
 button,
@@ -179,6 +181,68 @@ a {
 
 /**
 
+/* button
+================================================ */
+#contact__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 64px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#contact__button:hover {
+  opacity: 0.4;
+}
+
+#contact__button span {
+  z-index: 1;
+}
+
+.button__g__border {
+  --borderWidth: 3px;
+  background: #1d1f20;
+  position: relative;
+  z-index: 0;
+}
+
+.button__g__border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* lenis
 ================================================ */
 html.lenis {
@@ -280,23 +344,21 @@ header {
   cursor: pointer;
   padding: 20px;
   user-select: none;
+  transition: all 0.3s ease;
 }
 
-.header__nav ul li a {
-  mix-blend-mode: difference;
+.header__nav span {
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
-.header__nav ul li .contactBtn {
-  background-color: #ff4040;
-  width: 146px;
-  height: 48px;
-  display: grid;
-  display: -ms-grid;
-  display: -moz-grid;
-  place-items: center;
-  mix-blend-mode: difference;
+.header__nav:hover {
+  opacity: 1;
 }
 
+.header__nav:hover .nav__line {
+  rotate: 45deg;
+}
 /* nav
 ================================================ */
 
@@ -411,7 +473,7 @@ body {
 
 #slider {
   position: relative;
-  height: 100vh;
+  height: auto;
   overflow-x: hidden;
 }
 
@@ -428,8 +490,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   z-index: 5;
-  position: absolute;
-  top: 50%;
+  position: relative;
   transform: translateY(-50%);
   width: 100%;
 }
@@ -518,6 +579,118 @@ body {
   transition: opacity 0.4s ease-in-out, width 0.4s ease-in-out, height 0.4s ease-in-out;
 }
 
+/* contents
+================================================ */
+
+.contact .container {
+  display: block;
+  max-width: 92%;
+  margin: auto;
+}
+
+.contact .container .contact__btn span {
+  display: block;
+  text-align: center;
+}
+
+.contact .container a span.pc {
+  display: none;
+}
+
+.contact .container .contact__btn {
+  padding: 20px;
+}
+
+.contact__btn__caption {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: #fff;
+  opacity: 0.6;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.contact__btn__text {
+  font-size: medium;
+  color: white;
+}
+
+.contac__btn__click {
+  font-size: small;
+}
+
+.contact__bottom__text {
+  font-size: small;
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 1rem;
+  color: white;
+  opacity: 0.6;
+}
+
+/* footer
+================================================ */
+footer {
+  text-align: center;
+  color: white;
+}
+
+.footer__top {
+  margin-block: 40px;
+  letter-spacing: 2px;
+}
+
+.footer__top__address {
+  opacity: 0.6;
+  font-size: small;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  opacity: 0.6;
+}
+
+.footer__top h2 {
+  font-size: large;
+  opacity: 1;
+}
+
+.footer__bottom {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  mix-blend-mode: difference;
+  letter-spacing: 4px;
+  cursor: pointer;
+  padding: 12px;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.footer__bottom__list {
+  display: inline-block;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.footer__bottom__list:hover {
+  opacity: 1;
+}
+
+.footer__bottom__list .nav__line {
+  transition: all 0.3s ease;
+}
+
+.footer__bottom__list:hover .nav__line {
+  display: inline-block;
+  rotate: 45deg;
+}
+
+.copy {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
 /*------------------------------------------------------
  Tablet
 ------------------------------------------------------*/
@@ -569,6 +742,7 @@ body {
 
   .slider__content {
     margin: auto;
+    position: absolute;
     top: 55%;
     left: 0;
     right: 0;
@@ -595,6 +769,30 @@ body {
   }
   #slider__text .meta {
     font-size: 12px;
+  }
+
+  .contac__btn__click.pc {
+    text-align: center;
+    display: block;
+  }
+
+  .contact {
+    margin-top: 6rem;
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  #contact__button {
+    height: 72px;
+  }
+
+  .footer__top {
+    margin-block: 100px;
+  }
+
+  .copy {
+    margin-top: 100px;
+    margin-bottom: 20px;
   }
 }
 
@@ -636,12 +834,27 @@ body {
     display: flex;
   }
 
+  #slider {
+    overflow-y: hidden;
+  }
+
   .slider__content {
     top: 60%;
   }
 
   .slider__img {
     width: 70%;
+  }
+
+  .contact {
+    margin-top: 20vh;
+  }
+
+  #contact__button {
+    height: 100px;
+  }
+  .contact__btn__text {
+    font-size: larger;
   }
 }
 
@@ -656,4 +869,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.humb {
 }

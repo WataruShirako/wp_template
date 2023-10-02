@@ -15,11 +15,10 @@ $home = esc_url(home_url());
             <div class="fv__inner">
                 <img class="fv__img" src="<?php echo $uri; ?>/assets/img/noras_fv.png" />
                 <p>
-                    ノラスは、ウェブコンテンツ、アプリ開発、<br class="sp" />
+                    ノラスは、ウェブコンテンツ制作、アプリ開発、<br class="sp" />
                     デザイン制作を行う会社です。
                 </p>
             </div>
-
         </div>
         <section class="archivements">
             <h2 class="container section__title">
@@ -27,40 +26,32 @@ $home = esc_url(home_url());
                 <span>制作事例</span>
             </h2>
             <ul class="arc__container container">
-                <li class="arc__list">
-                    <a href="" class="arc__list__image__wrapper">
-                        <img class="sh__img" src="<?php echo $uri; ?>/assets/img/service/service_1.webp" alt="" />
-                        <h3 class="arc__list__title">Sabak</h3>
-                        <p class="caption__text">もう迷わない、プロジェクト管理ツール</p>
-                    </a>
+                <?php
 
-                </li>
+                $args = array(
+                    'post_type' => 'archivements',
+                    'posts_per_page' => 3 //表示件数（-1で全ての記事を表示）
+                );
+                query_posts($args);
+                ?>
+                <?php if (have_posts()) : ?>
+                <?php while (have_posts()) : the_post(); ?>
                 <li class="arc__list">
-                    <a href="" class="arc__list__image__wrapper">
-                        <div class="sh__img__wrapper">
-                            <img class="sh__img" src="<?php echo $uri; ?>/assets/img/service/service_2.webp" alt="" />
-                        </div>
-                        <h3 class="arc__list__title">夢叶えるプロジェクト2024</h3>
-                        <p class="caption__text">ビジネス×クリエイターの祭典</p>
-                    </a>
-
+                    <div href="" class="arc__list__image__wrapper">
+                        <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('', ['class' => 'sh__img']); ?>
+                        <?php else : ?>
+                        <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" alt="デフォルト画像" />
+                        <?php endif; ?>
+                        <h3 class="arc__list__title"><?php the_title(); ?></h3>
+                        <p class="caption__text"><?php echo get_the_excerpt(); ?></p>
+                        </ぢ>
                 </li>
-                <li class="arc__list">
-                    <a href="" class="arc__list__image__wrapper">
-                        <img class="sh__img" src="<?php echo $uri; ?>/assets/img/service/service_3.webp" alt="" />
-                        <h3 class="arc__list__title">APHRODiTE</h3>
-                        <p class="caption__text">YouTubeの台本を自動生成するアプリ。</p>
-                    </a>
-
-                </li>
-                <li class="arc__list">
-                    <a href="" class="arc__list__image__wrapper">
-                        <img class="sh__img" src="<?php echo $uri; ?>/assets/img/service/service_4.webp" alt="" />
-                        <h3 class="arc__list__title">古民家のらり</h3>
-                        <p class="caption__text">能登半島の築150年以上の古民家</p>
-                    </a>
-
-                </li>
+                <?php endwhile; ?>
+                <?php else : ?>
+                <p>投稿はありません。</p>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
             </ul>
         </section>
 
@@ -78,7 +69,8 @@ $home = esc_url(home_url());
                     <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_1.webp" />
                     <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_2.webp" />
                     <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_3.webp" />
-                    <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_4.webp" width="1280" height="720" />
+                    <img class="s_img" src="<?php echo $uri; ?>/assets/img/service/service_4.webp" width="1280"
+                        height="720" />
                 </div>
 
                 <div class="slider__content ">
@@ -107,15 +99,21 @@ $home = esc_url(home_url());
                     </div>
                 </div>
 
-
-
             </div>
 
         </section>
 
-        <div style="height: 100vh;"></div>
-
-
+        <section class="contact">
+            <div class="container">
+                <a href="https://forms.gle/u9gzotRGtMFtZrQB6" target="_blank" class="button__g__border"
+                    id="contact__button">
+                    <span class="contact__btn__caption">Contact</span>
+                    <span class="contact__btn__text">お問い合わせ</span>
+                    <span class="contac__btn__click pc">お問い合わせはこちらをクリックしてください</span>
+                </a>
+                <p class="contact__bottom__text">営業時間<br class="sp" /> 9:00-18:00(土日祝含む)</p>
+            </div>
+        </section>
 
     </div>
 
