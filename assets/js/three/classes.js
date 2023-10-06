@@ -22,6 +22,14 @@ export class Fv {
   update(offset) {
     this.setParams();
     this.mesh.material.uniforms.uTime.value = offset;
+
+    if (Math.abs(this.previousOffset - offset) > 50) {
+      console.log('Large Offset Change:', offset);
+    }
+    this.previousOffset = offset;
+
+    // 保存
+    localStorage.setItem('offset', offset);
   }
 }
 

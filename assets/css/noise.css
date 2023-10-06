@@ -1,9 +1,12 @@
 .noise {
-  height: 100vh;
+  min-height: 120lvh; /* Fallback */
+  min-height: calc(var(--vh, 1lvh) * 100);
   pointer-events: none;
   z-index: 0;
   opacity: 0.8;
   position: fixed;
+  transition: all ease 3.3s;
+  overflow: visible;
 }
 
 .noise::before {
@@ -13,11 +16,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120lvh;
   background: url('../img/noise-web.webp');
   -webkit-animation: 90ms infinite noise;
   animation: 90ms infinite noise;
   opacity: 0.4;
+  transition: all ease 0.3s;
 }
 
 @-webkit-keyframes noise {
@@ -92,7 +96,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120lvh;
   opacity: 1;
   background: url('../img/horizonal.png'), rgba(0, 0, 0, 0.1);
   background-blend-mode: multiply;
@@ -104,22 +108,17 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120lvh;
   opacity: 1;
   background: url('../img/line2.png'), rgba(0, 0, 0, 0.1);
   background-blend-mode: exclusion;
   z-index: -1;
 }
 
-/* .noise__item3 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.4;
-  background: url('../img/highlight.png'), rgba(0, 0, 0, 0.1);
-  -webkit-animation: 90ms infinite noise;
-  animation: 90ms infinite noise;
-  opacity: 0.4;
-} */
+.noise.error {
+  opacity: 1;
+}
+
+.noise.error::before {
+  opacity: 0.8;
+}

@@ -1,5 +1,4 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
-import { getMat } from './meshes.js';
 
 const canvasEl = document.getElementById('webgl-canvas');
 
@@ -24,7 +23,7 @@ export const loader = new THREE.TextureLoader();
 // ライトの初期設定
 export const light = new THREE.AmbientLight(0xffffff, 5.0);
 
-// function初期設定
+// scene初期設定
 export function setupScene() {
   loader.crossOrigin = 'anonymous';
 
@@ -58,92 +57,4 @@ export const resize = () => {
   const fovRad = (fov / 2) * (Math.PI / 180);
   const dist = canvasSize.h / 2 / Math.tan(fovRad);
   camera.position.z = dist;
-};
-
-// スライダーのイベント
-export let addEvents = function () {
-  let pagButtons = Array.from(document.getElementById('pagination').querySelectorAll('button'));
-  let isAnimating = false;
-
-  const mat = getMat();
-  console.log(mat);
-
-  pagButtons.forEach((el) => {
-    el.addEventListener('click', function () {
-      if (!isAnimating) {
-        isAnimating = true;
-
-        document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
-        this.className = 'active';
-
-        let slideId = parseInt(this.dataset.slide, 10);
-
-        mat.uniforms.nextImage.value = sliderImages[slideId];
-        mat.uniforms.nextImage.needsUpdate = true;
-
-        gsap.to(mat.uniforms.dispFactor, 1, {
-          value: 1,
-          ease: 'Expo.easeInOut',
-          onComplete: function () {
-            mat.uniforms.currentImage.value = sliderImages[slideId];
-            mat.uniforms.currentImage.needsUpdate = true;
-            mat.uniforms.dispFactor.value = 0.0;
-            isAnimating = false;
-          },
-        });
-
-        let slideTitleEl = document.getElementById('slide-title');
-        let slideStatusEl = document.getElementById('slide-status');
-        let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0]
-          .innerHTML;
-        let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0]
-          .innerHTML;
-
-        gsap.fromTo(
-          slideTitleEl,
-          0.5,
-          {
-            autoAlpha: 1,
-            y: 0,
-          },
-          {
-            autoAlpha: 0,
-            y: 20,
-            ease: 'Expo.easeIn',
-            onComplete: function () {
-              slideTitleEl.innerHTML = nextSlideTitle;
-
-              gsap.to(slideTitleEl, 0.5, {
-                autoAlpha: 1,
-                y: 0,
-              });
-            },
-          }
-        );
-
-        gsap.fromTo(
-          slideStatusEl,
-          0.5,
-          {
-            autoAlpha: 1,
-            y: 0,
-          },
-          {
-            autoAlpha: 0,
-            y: 20,
-            ease: 'Expo.easeIn',
-            onComplete: function () {
-              slideStatusEl.innerHTML = nextSlideStatus;
-
-              gsap.to(slideStatusEl, 0.5, {
-                autoAlpha: 1,
-                y: 0,
-                delay: 0.1,
-              });
-            },
-          }
-        );
-      }
-    });
-  });
 };

@@ -1,26 +1,11 @@
-barba.init({
-  transitions: [
-    {
-      name: 'default-transition',
-      leave() {
-        // create your stunning leave animation here
-      },
-      enter() {
-        // create your amazing enter animation here
-      },
-    },
-  ],
-});
+import { lenisInit } from './lenis/main.js';
+import { setFillHeight } from './utils.js';
+import { setupAnalytics } from './barba/analytics.js';
+import { barbaInit } from './barba/barbaInit.js';
+import { threeInit } from './three/main.js';
 
-const lenis = new Lenis();
-lenis.on('scroll', (e) => {
-  //   console.log(e);
-});
-
-function raf(time) {
-  lenis.raf(time);
-  lenis.mouse;
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
+setFillHeight();
+setupAnalytics();
+// barbaInit();
+lenisInit();
+threeInit();

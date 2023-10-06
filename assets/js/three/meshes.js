@@ -1,5 +1,7 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+import rawLoader from 'https://cdn.jsdelivr.net/npm/raw-loader@4.0.2/+esm';
 import { loader, renderer } from './setup.js';
+import { addEvents } from './events.js';
 
 // FVメッシュ
 export const createFvMesh = (img) => {
@@ -50,8 +52,6 @@ export const createSlideMesh = (opts) => {
 
   let sliderImages = [];
 
-  console.log(sliderImages);
-
   opts.images.forEach((img) => {
     let texture = loader.load(img.getAttribute('src') + '?v=' + Date.now());
     texture.magFilter = texture.minFilter = THREE.LinearFilter;
@@ -76,118 +76,28 @@ export const createSlideMesh = (opts) => {
     opacity: 1.0,
   });
 
-  // スライダーのイベント
-  let addEvents = function () {
-    let pagButtons = Array.from(document.getElementById('pagination').querySelectorAll('button'));
-    let isAnimating = false;
-
-    pagButtons.forEach((el) => {
-      el.addEventListener('click', function () {
-        if (!isAnimating) {
-          isAnimating = true;
-
-          document.getElementById('pagination').querySelectorAll('.active')[0].className = '';
-          this.className = 'active';
-
-          let slideId = parseInt(this.dataset.slide, 10);
-
-          mat.uniforms.nextImage.value = sliderImages[slideId];
-          mat.uniforms.nextImage.needsUpdate = true;
-          mat.uniforms.shakeIntensity.value = 0; // 揺れの初期強度を設定
-
-          gsap.to(mat.uniforms.dispFactor, 0.5, {
-            value: 1,
-            ease: 'elastic.in(1, 0.3)',
-            onStart: function () {
-              gsap.to(mat.uniforms.shakeIntensity, {
-                duration: 0.5,
-                value: 0.01,
-                ease: 'elastic.in(1, 0.3)',
-              });
-            },
-            onComplete: function () {
-              mat.uniforms.currentImage.value = sliderImages[slideId];
-              mat.uniforms.currentImage.needsUpdate = true;
-
-              gsap.to(mat.uniforms.dispFactor, 0.5, {
-                value: 0,
-                ease: 'elastic.Out(1, 0.3)',
-                onComplete: function () {
-                  // 揺れの強度を徐々に0にする
-                  gsap.to(mat.uniforms.shakeIntensity, {
-                    duration: 0.5,
-                    value: 0,
-                    ease: 'elastic.Out(1, 0.3)',
-                  });
-                  isAnimating = false;
-                },
-              });
-            },
-          });
-
-          let slideTitleEl = document.getElementById('slide-title');
-          let slideStatusEl = document.getElementById('slide-status');
-          let nextSlideTitle = document.querySelectorAll(`[data-slide-title="${slideId}"]`)[0]
-            .innerHTML;
-          let nextSlideStatus = document.querySelectorAll(`[data-slide-status="${slideId}"]`)[0]
-            .innerHTML;
-
-          gsap.fromTo(
-            slideTitleEl,
-            0.5,
-            {
-              autoAlpha: 1,
-              y: 0,
-            },
-            {
-              autoAlpha: 0,
-              y: 20,
-              ease: 'Expo.easeIn',
-              onComplete: function () {
-                slideTitleEl.innerHTML = nextSlideTitle;
-
-                gsap.to(slideTitleEl, 0.5, {
-                  autoAlpha: 1,
-                  y: 0,
-                });
-              },
-            }
-          );
-
-          gsap.fromTo(
-            slideStatusEl,
-            0.5,
-            {
-              autoAlpha: 1,
-              y: 0,
-            },
-            {
-              autoAlpha: 0,
-              y: 20,
-              ease: 'Expo.easeIn',
-              onComplete: function () {
-                slideStatusEl.innerHTML = nextSlideStatus;
-
-                gsap.to(slideStatusEl, 0.5, {
-                  autoAlpha: 1,
-                  y: 0,
-                  delay: 0.1,
-                });
-              },
-            }
-          );
-        }
-      });
-    });
-  };
-
-  addEvents();
+  addEvents(mat, sliderImages);
 
   const mesh = new THREE.Mesh(geo, mat);
   return mesh;
 };
 
 export const getMat = () => {
-  console.log('mat inside getMat:', mat); // getMatが呼ばれたときのmatの値をログに出力
   return mat;
+};
+
+export const disposeMesh = (mesh) => {
+  if (mesh) {
+    if (mesh.geo) {
+      mesh.geo.dispose();
+    }
+    if (mesh.mat) {
+      if (Array.isArray(mesh.mat)) {
+        mesh.mat.forEach((m) => m.dispose());
+      } else {
+        mesh.mat.dispose();
+      }
+    }
+    // Add other disposals as needed, such as textures
+  }
 };

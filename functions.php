@@ -6,6 +6,15 @@ add_theme_support('post-thumbnails');
 // カスタムメニューをサポート
 add_theme_support('menus');
 
+// タイトルタグをサポート
+add_theme_support('title-tag');
+function my_title_separator($separator)
+{
+    $separator = '|';
+    return $separator;
+}
+add_filter('document_title_separator', 'my_title_separator');
+
 // カスタムメニューの「場所」を設定
 register_nav_menu('header-navi', 'ヘッダーナビゲーション');
 register_nav_menu('footer-navi', 'フッターナビゲーション');

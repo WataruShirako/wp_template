@@ -7,49 +7,43 @@ $home = esc_url(home_url());
 
 <?php get_template_part("parts/header/header"); ?>
 
-<main data-barba="container" data-barba-namespace="archive-archivements" class="archive">
+<main data-barba="container" data-barba-namespace="archivement" class="archive">
 
-    <div class="wrapper">
-        <section class="archivements container">
-            <h2 class="section__title">
+    <div class="wrapper subp">
+        <section class="archivements">
+            <h2 class="section__title container">
                 Archivements
+                <span>制作実績</span>
             </h2>
-            <ul class="image__list">
-                <li class="image__item">
-                    <a href="" class="image__wrapper">
-                        <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
-                        <h3>Sabak</h3>
-                        <p class="caption__text">もう迷わない、プロジェクト管理ツール</p>
-                    </a>
-                    <span class="image__item__cat">Dev.</span>
-                </li>
-                <li class="image__item">
-                    <a href="" class="image__wrapper">
-                        <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
-                        <h3>APHRODiTE</h3>
-                        <p class="caption__text">YouTubeの台本を自動生成するアプリ。</p>
-                    </a>
-                    <span class="image__item__cat">Dev.</span>
-                </li>
-                <li class="image__item">
-                    <a href="" class="image__wrapper">
-                        <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
-                        <h3>夢叶えるプロジェクト2024</h3>
-                        <p class="caption__text">ビジネス×クリエイターの祭典</p>
-                    </a>
-                    <span class="image__item__cat">
-                        Design.
-                    </span>
-                </li>
-                <li class="image__item">
-                    <a href="" class="image__wrapper">
-                        <img class="sh__img" src="https://source.unsplash.com/whOkVvf0_hU/" alt="" />
-                        <h3>古民家のらり</h3>
-                        <p class="caption__text">能登半島の築150年以上の古民家</p>
-                    </a>
-                    <span class="image__item__cat">Service.</span>
-                </li>
+            <ul class="arc__container container">
+                <?php
+
+                $args = array(
+                    'post_type' => 'archivements',
+                    'posts_per_page' => 3 //表示件数（-1で全ての記事を表示）
+                );
+                query_posts($args);
+                ?>
+                <?php if (have_posts()) : ?>
+                    <?php while (have_posts()) : the_post(); ?>
+                        <li class="arc__list">
+                            <div href="" class="arc__list__image__wrapper">
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <?php the_post_thumbnail('', ['class' => 'sh__img']); ?>
+                                <?php else : ?>
+                                    <img src="<?php echo $uri; ?>/assets/img/noimage.webp" alt="no-image" />
+                                <?php endif; ?>
+                                <h3 class="arc__list__title"><?php the_title(); ?></h3>
+                                <p class="caption__text"><?php echo get_the_excerpt(); ?></p>
+                            </div>
+                        </li>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <p>投稿はありません。</p>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
             </ul>
+
         </section>
 
 
