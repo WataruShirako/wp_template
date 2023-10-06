@@ -1,11 +1,13 @@
 .page__contact {
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   color: #eee;
+  margin-top: 12rem;
 }
 
 .subp.wrapper.page__contact {
-  margin-top: -32px;
+  /* margin-top: -32px; */
+  margin-top: 6rem;
 }
 
 .page__contact__text {
@@ -117,18 +119,19 @@
 }
 
 @media (min-width: 1024px) {
-  @media (min-width: 640px) {
-    .page__contact__text {
-      grid-column: 2 / 5;
-      align-self: center;
-    }
+  .subp.wrapper.page__contact {
+    margin-top: -32px;
+  }
+  .page__contact__text {
+    grid-column: 2 / 5;
+    align-self: center;
+  }
 
-    .page__contact__form {
-      grid-column: 6 / 12;
-      margin-bottom: 1rem;
-    }
-    .contact__form__inner {
-      padding: 60px 60px;
-    }
+  .page__contact__form {
+    grid-column: 6 / 12;
+    margin-bottom: 1rem;
+  }
+  .contact__form__inner {
+    padding: 60px 60px;
   }
 }

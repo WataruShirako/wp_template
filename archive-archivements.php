@@ -23,6 +23,8 @@ $home = esc_url(home_url());
                     'posts_per_page' => 3 //表示件数（-1で全ての記事を表示）
                 );
                 query_posts($args);
+                get_template_part("parts/shader/vShaderArc");
+                get_template_part("parts/shader/fShaderArc");
                 ?>
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>

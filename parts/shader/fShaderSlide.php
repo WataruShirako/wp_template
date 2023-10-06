@@ -7,6 +7,7 @@ uniform float dispFactor;
 uniform vec2 orig1;
 uniform vec2 orig2;
 uniform float intensity;
+uniform float uOpacity;
 
 void main() {
     vec2 uv = vUv;
@@ -29,7 +30,7 @@ void main() {
     mixedColor.r = mix(currColorR.r, nextColorR.r, dispFactor);
     mixedColor.g = mix(currColorG.g, nextColorG.g, dispFactor);
     mixedColor.b = mix(currColorB.b, nextColorB.b, dispFactor);
-    mixedColor.a = 1.0;
+    mixedColor.a = uOpacity;
 
     gl_FragColor = mixedColor;
 }

@@ -8,15 +8,6 @@ $contact = esc_url(home_url("/contact/"));
 
 ?>
 
-<svg class="overlay" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path id="overlayPath" class="overlayPath" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
-</svg>
-
-<div class="webgl-canvas">
-    <canvas id="webgl-canvas" class="webgl-canvas__body"></canvas>
-</div>
-
-
 <footer>
     <div class="footer__top">
         <h2>合同会社ノラス</h2>

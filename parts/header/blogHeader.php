@@ -18,22 +18,17 @@ $contact = esc_url(home_url("/contact/"));
     <link rel="shortcut icon" href="<?php echo $uri; ?>/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $uri; ?>/assets/img/favicon.png" />
     <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/animations/loading.css" />
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/animations/noise.css" />
     <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/navigation.css" />
     <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/main.css" />
     <!-- 404ページの場合 -->
     <?php if (is_404()) : ?>
         <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/pages/page-404.css" />
     <?php endif; ?>
-    <!-- アーカイブニュースの場合 -->
-    <?php if (is_post_type_archive('news')) : ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/archives/archive-news.css" />
-    <?php endif; ?>
     <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/singles/single-news.css" />
     <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/pages/page-contact.css" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    <script defer src="<?php echo $uri; ?>/assets/js/index.js" type="module"></script>
+    <script defer src="<?php echo $uri; ?>/assets/js/blog/main.js" type="module"></script>
     <?php wp_head(); ?>
     <script>
         (function(w, d, s, l, i) {
@@ -68,4 +63,3 @@ $contact = esc_url(home_url("/contact/"));
     </header>
 
     <?php echo get_template_part("parts/header/navigation") ?>
-    <?php echo get_template_part("parts/animations/noise") ?>

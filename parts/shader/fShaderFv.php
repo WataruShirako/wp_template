@@ -4,6 +4,7 @@
       uniform float uImageAspect;
       uniform float uPlaneAspect;
       uniform float uTime;
+      uniform float uOpacity;
 
       void main(){
         // 画像のアスペクトとプレーンオブジェクトのアスペクトを比較し、短い方に合わせる
@@ -30,6 +31,6 @@
         
         vec3 texture = vec3(r, g, b);
 
-        gl_FragColor = vec4(texture, 1.0);
+        gl_FragColor = vec4(texture, uOpacity);
       }
     </script>

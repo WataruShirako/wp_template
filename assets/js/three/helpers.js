@@ -50,3 +50,9 @@ export const loop = () => {
 
   renderer.render(scene, camera);
 };
+
+// メッシュを透明にする関数
+export const makeTransparent = (mesh) => {
+  mesh.material.transparent = true;
+  mesh.material.opacity = 0;
+};

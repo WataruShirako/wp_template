@@ -17,7 +17,7 @@
   left: 0;
   width: 100%;
   height: 120lvh;
-  background: url('../img/noise-web.webp');
+  background: url('../../img/noise-web.webp');
   -webkit-animation: 90ms infinite noise;
   animation: 90ms infinite noise;
   opacity: 0.4;
@@ -98,7 +98,7 @@
   width: 100%;
   height: 120lvh;
   opacity: 1;
-  background: url('../img/horizonal.png'), rgba(0, 0, 0, 0.1);
+  background: url('../../img/horizonal.png'), rgba(0, 0, 0, 0.1);
   background-blend-mode: multiply;
   z-index: 0;
 }
@@ -110,7 +110,7 @@
   width: 100%;
   height: 120lvh;
   opacity: 1;
-  background: url('../img/line2.png'), rgba(0, 0, 0, 0.1);
+  background: url('../../img/line2.png'), rgba(0, 0, 0, 0.1);
   background-blend-mode: exclusion;
   z-index: -1;
 }

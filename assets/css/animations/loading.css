@@ -1,0 +1,21 @@
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  z-index: 100000000000000;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Helvetiva', sans-serif;
+}
+
+.loader p {
+  font-size: 2rem;
+  font-weight: 900;
+  color: transparent;
+  text-shadow: 1px 1px 2.5px #fff;
+}

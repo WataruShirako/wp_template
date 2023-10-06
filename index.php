@@ -2,12 +2,17 @@
 
 $uri = get_template_directory_uri();
 $home = esc_url(home_url());
+$contact = esc_url(home_url("/contact/"));
 
 ?>
 
 <?php get_template_part("parts/header/header"); ?>
+<?php echo get_template_part("parts/header/loader") ?>
 
 <main data-barba="container" data-barba-namespace="index">
+
+    <?php echo get_template_part("/parts/top/news") ?>
+
     <div class="wrapper">
         <section class="fv">
             <!-- fv用のシェーダー -->
@@ -17,11 +22,12 @@ $home = esc_url(home_url());
             ?>
             <div class="fv__inner">
                 <img class="fv__img" src="<?php echo $uri; ?>/assets/img/noras_inc.webp" />
-                <p>
+                <p class="fv__text">
                     ノラスは、デジタルコンテンツ制作・開発<br class="sp" />を行う会社です。
                 </p>
             </div>
         </section>
+
         <section class="archivements">
             <h2 class="container section__title">
                 Archivements
@@ -88,7 +94,7 @@ $home = esc_url(home_url());
                         <span data-slide-title="0">アプリ開発</span>
                         <span data-slide-title="1">ウェブデザイン</span>
                         <span data-slide-title="2">映像制作</span>
-                        <span data-slide-title="3">古民家のらり</span>
+                        <span data-slide-title="3">古民家再生</span>
                     </div>
                     <div id="pagination">
                         <button class="active" data-slide="0"></button>
@@ -101,7 +107,7 @@ $home = esc_url(home_url());
         </section>
         <section class="contact">
             <div class="container">
-                <a href="https://forms.gle/u9gzotRGtMFtZrQB6" target="_blank" class="button__g__border" id="contact__button">
+                <a href="<?php echo $contact ?>" class="button__g__border" id="contact__button">
                     <span class="contact__btn__caption">Contact</span>
                     <span class="contact__btn__text">お問い合わせ</span>
                     <span class="contac__btn__click pc">お問い合わせはこちらをクリックしてください</span>

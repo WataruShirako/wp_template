@@ -1,4 +1,6 @@
-// 100vhの調整
+import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm';
+
+// 100vhのガタ付き調整
 export const setFillHeight = () => {
   const vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -15,25 +17,41 @@ window.addEventListener('resize', () => {
   setFillHeight();
 });
 
-// ナビゲーションボタンをクリックしたら、ナビゲーションを開く
-const navBtn = document.querySelector('.header__nav');
-const navBtnTxt = document.querySelector('#header__nav__button__text');
-const nav = document.querySelector('.nav');
-const navBg = document.querySelector('.nav__bg');
-const navList = document.querySelector('.nav__list');
-const navItems = document.querySelectorAll('.nav__item');
-const navLinks = document.querySelectorAll('.nav__link');
-const navClose = document.querySelector('.nav__close');
-// ナビゲーションボタンをクリックしたら、ナビゲーションを開く
-navBtn.addEventListener('click', () => {
-  nav.classList.toggle('nav__open');
-  navBg.classList.toggle('nav__open');
-  navList.classList.toggle('nav__open');
+// ページ遷移アニメーション
+export const pageTrantition = () => {
+  const OVERLAYPATH = document.getElementById('overlayPath');
+  const tl = gsap.timeline({});
+  // 遷移開始
+  document.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault(); // デフォルトのページ遷移を防ぐ
+      let targetUrl = this.getAttribute('href'); // 遷移先URLを取得
+      transitionAnimation(targetUrl); // アニメーション関数を実行
+    });
+  });
+  function transitionAnimation(targetUrl) {
+    // アニメーションロジック（画面を黒く覆う等）
 
-  // ナビゲーションが開いているかどうかをチェックし、ボタンのテキストを更新
-  if (nav.classList.contains('nav__open')) {
-    navBtnTxt.textContent = 'CLOSE';
-  } else {
-    navBtnTxt.textContent = 'MENU';
+    tl.set(OVERLAYPATH, {
+      attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' },
+    })
+      .to(
+        OVERLAYPATH,
+        {
+          duration: 0.5,
+          ease: 'power4.in',
+          attr: { d: 'M 0 100 V 50 Q 50 0 100 50 V 100 z' },
+        },
+        0
+      )
+      .to(OVERLAYPATH, {
+        duration: 0.3,
+        ease: 'power2',
+        attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
+        onComplete: () => {
+          // sessionStorage.setItem('isAnimating', 'true'); // アニメーション中フラグをセット
+          window.location.href = targetUrl; // アニメーション後にページ遷移
+        },
+      });
   }
-});
+};

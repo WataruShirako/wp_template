@@ -12,8 +12,9 @@ export const createFvMesh = (img) => {
     uImageAspect: { value: img.naturalWidth / img.naturalHeight },
     uPlaneAspect: { value: img.clientWidth / img.clientHeight },
     uTime: { value: 0 },
+    uOpacity: { value: 1 },
   };
-  const geo = new THREE.PlaneGeometry(1, 1, 100, 100); // 後から画像のサイズにscaleするので1にしておく
+  const geo = new THREE.PlaneGeometry(1, 1, 100, 100);
   const mat = new THREE.ShaderMaterial({
     uniforms,
     vertexShader: document.getElementById('v-shader-fv').textContent,
@@ -33,8 +34,9 @@ export const createMesh = (img) => {
     uImageAspect: { value: img.naturalWidth / img.naturalHeight },
     uPlaneAspect: { value: img.clientWidth / img.clientHeight },
     uTime: { value: 0 },
+    uOpacity: { value: 1.0 },
   };
-  const geo = new THREE.PlaneGeometry(1, 1, 100, 100); // 後から画像のサイズにscaleするので1にしておく
+  const geo = new THREE.PlaneGeometry(1, 1, 100, 100);
   const mat = new THREE.ShaderMaterial({
     uniforms,
     vertexShader: document.getElementById('v-shader').textContent,
@@ -65,6 +67,7 @@ export const createSlideMesh = (opts) => {
       uImageAspect: { value: opts.naturalWidth / opts.naturalHeight },
       uPlaneAspect: { value: opts.clientWidth / opts.clientHeight },
       uTime: { value: 0 },
+      uOpacity: { value: 1.0 },
       dispFactor: { type: 'f', value: 0.0 },
       currentImage: { type: 't', value: sliderImages[0] },
       nextImage: { type: 't', value: sliderImages[1] },
