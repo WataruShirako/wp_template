@@ -817,7 +817,7 @@ body {
 }
 .top__news__wrap {
   position: absolute;
-  top: calc(100vh - 97px);
+  top: calc((var(--vh, 1vh) * 100) - 97px);
   right: 20px;
   z-index: 20;
 }

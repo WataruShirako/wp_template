@@ -1,11 +1,169 @@
 body {
-  background: #181818;
+  background: #1c1c1c;
 }
 
 main {
   grid-column: 1/5;
+  font-feature-settings: 'palt';
+}
+
+aside {
+  grid-column: 1/5;
+}
+
+header {
+  background: #1c1c1c;
+  border-bottom: rgba(238, 238, 238, 0.6) 1px solid;
+}
+
+header[aria-hidden='true'] {
+  background: transparent;
+  border: none;
+}
+
+.wrapper {
+  margin-top: 5rem;
+}
+
+a {
+  transition: all 0.3s ease;
 }
 
 .single__blog {
-  margin-top: 5rem;
+  margin-top: 2.5rem;
+}
+
+.single__blog__title h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #eeeeee;
+}
+
+.single__blog__date {
+  font-size: 13px;
+  color: #eeeeee;
+}
+
+.single__blog__info__top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.blog__list__info__new__category__wrap {
+  gap: 0.5rem;
+  display: flex;
+}
+
+.blog__list__info__new__category {
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.blog__list__info__bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.blog__list__info__bottom__avatar {
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.blog__list__info__bottom__name {
+  font-size: 13px;
+  color: #eee;
+  font-weight: 400;
+}
+
+.single__blog__thumbnail {
+  margin-top: 1.5rem;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
+.single__blog__thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.single__news__content {
+  line-height: 1.6;
+}
+
+.single__news__content h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.single__news__content h2 {
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: #eee 1px solid;
+}
+
+.single__news__content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-left: 12px;
+  border-left: #eee 1px solid;
+}
+
+.single__news__content h4 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 640px) {
+  main {
+    grid-column: 2/8;
+  }
+
+  aside {
+    grid-column: 2/8;
+  }
+
+  .blog__list__info__title {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    grid-column: 2/8;
+  }
+
+  aside {
+    grid-column: 9/12;
+  }
+
+  .wrapper {
+    margin-top: 8rem;
+  }
+
+  .single__blog {
+    margin-top: 0;
+  }
+
+  .sp__top__category {
+    display: none;
+  }
+
+  .arc__blog__category__link {
+    padding: 4px 16px;
+  }
+
+  .single__blog__info__top {
+    flex-direction: row;
+    align-items: center;
+  }
 }
