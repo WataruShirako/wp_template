@@ -7,9 +7,9 @@ $home = esc_url(home_url());
 
 <?php get_template_part("parts/header/header"); ?>
 
-<main data-barba="container" data-barba-namespace="single-archivements">
+<main>
 
-    <div class="wrapper subp">
+    <div class="wrapper subp single">
         <section class="single__news">
             <div class="single__news__title">
                 <h1>
@@ -19,15 +19,9 @@ $home = esc_url(home_url());
             <div class="single__news__date">
                 <p><?php echo get_the_date("Y.m.d") ?></p>
             </div>
-            <div class="single__text__content">
+            <div class="single__news__content">
                 <?php the_content(); ?>
             </div>
-        </section>
-
-        <section>
-            <a href="" class="button__back">
-                一覧に戻る
-            </a>
         </section>
     </div>
 

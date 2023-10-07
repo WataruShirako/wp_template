@@ -1,3 +1,17 @@
-.single__news__title {
-  font-size: larger;
+.single__news__title h1 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+}
+
+.single__news__date {
+  margin-top: 1.5rem;
+  font-size: small;
+  opacity: 0.6;
+}
+
+.single__news__content {
+  margin-top: 1rem;
+  padding-bottom: 2rem;
 }

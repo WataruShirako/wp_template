@@ -45,21 +45,21 @@ $contact = esc_url(home_url("/contact/"));
                 get_template_part("parts/shader/fShaderArc");
                 ?>
                 <?php if (have_posts()) : ?>
-                    <?php while (have_posts()) : the_post(); ?>
-                        <li class="arc__list">
-                            <div href="" class="arc__list__image__wrapper">
-                                <?php if (has_post_thumbnail()) : ?>
-                                    <?php the_post_thumbnail('', ['class' => 'sh__img']); ?>
-                                <?php else : ?>
-                                    <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" alt="デフォルト画像" />
-                                <?php endif; ?>
-                                <h3 class="arc__list__title"><?php the_title(); ?></h3>
-                                <p class="caption__text"><?php echo get_the_excerpt(); ?></p>
-                                </ぢ>
-                        </li>
-                    <?php endwhile; ?>
+                <?php while (have_posts()) : the_post(); ?>
+                <li class="arc__list">
+                    <div href="" class="arc__list__image__wrapper">
+                        <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('', ['class' => 'sh__img']); ?>
+                        <?php else : ?>
+                        <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" alt="デフォルト画像" />
+                        <?php endif; ?>
+                        <h3 class="arc__list__title"><?php the_title(); ?></h3>
+                        <p class="caption__text"><?php echo get_the_excerpt(); ?></p>
+                    </div>
+                </li>
+                <?php endwhile; ?>
                 <?php else : ?>
-                    <p>投稿はありません。</p>
+                <p>投稿はありません。</p>
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
             </ul>
@@ -105,16 +105,7 @@ $contact = esc_url(home_url("/contact/"));
                 </div>
             </div>
         </section>
-        <section class="contact">
-            <div class="container">
-                <a href="<?php echo $contact ?>" class="button__g__border" id="contact__button">
-                    <span class="contact__btn__caption">Contact</span>
-                    <span class="contact__btn__text">お問い合わせ</span>
-                    <span class="contac__btn__click pc">お問い合わせはこちらをクリックしてください</span>
-                </a>
-                <p class="contact__bottom__text">営業時間<br class="sp" /> 9:00-18:00(土日祝含む)</p>
-            </div>
-        </section>
+
     </div>
 </main>
 

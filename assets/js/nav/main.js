@@ -3,8 +3,9 @@ import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm';
 export const navigation = () => {
   const CONTENTS = {
     MAIN: document.querySelector('main'),
-    FOOTER: document.getElementById('footer'),
+    FOOTER: document.querySelector('footer'),
   };
+  const HEADER = document.querySelector('header');
   const NAV = document.getElementById('nav');
   const MENU = document.getElementById('menu');
   const TOGGLE = document.getElementById('toggle');
@@ -18,12 +19,15 @@ export const navigation = () => {
   function menuOpen() {
     if (isAnimating) return;
     isAnimating = true;
+    // bodyにスクロールを禁止する
+    document.body.style.overflowY = 'hidden';
 
     gsap
       .timeline({
         onStart: () => {
           NAV.setAttribute('aria-hidden', 'false');
           TOGGLE.setAttribute('aria-label', 'メニューを閉じる');
+
           gsap.to(TOGGLE, {
             autoAlpha: 0,
             scale: 0,
@@ -32,6 +36,7 @@ export const navigation = () => {
           gsap.set(MENU, {
             y: -100,
             autoAlpha: 0,
+            onComplete: () => {},
           });
         },
         onComplete: () => {
@@ -58,6 +63,9 @@ export const navigation = () => {
         attr: { d: 'M 0 0 V 100 Q 50 100 100 100 V 0 z' },
         ease: 'power2',
         duration: 0.3,
+        onComplete: () => {
+          HEADER.setAttribute('aria-hidden', 'true');
+        },
       })
       // メインコンテンツを非表示にする
       .to(
@@ -111,6 +119,9 @@ export const navigation = () => {
   function menuClose() {
     if (isAnimating) return;
     isAnimating = true;
+
+    // bodyにスクロールを解除する
+    document.body.style.overflowY = 'auto';
     gsap
       .timeline({
         onStart: () => {
@@ -141,6 +152,9 @@ export const navigation = () => {
         duration: 0.3,
         ease: 'power2',
         attr: { d: 'M 0 100 V 0 Q 50 0 100 0 V 100 z' },
+        onComplete: () => {
+          HEADER.setAttribute('aria-hidden', 'false');
+        },
       })
       // メニューを上に移動させながら非表示にする
       .to(

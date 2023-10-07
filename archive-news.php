@@ -8,13 +8,8 @@ $home = esc_url(home_url());
 <?php get_template_part("parts/header/header"); ?>
 
 <main data-barba="container" data-barba-namespace="news" class="news">
-
     <div class="wrapper subp">
         <section class="news">
-            <h2 class="section__title container">
-                News
-                <span>新着情報</span>
-            </h2>
             <ul class="news__container container">
                 <?php
                 $args = array(
@@ -25,9 +20,10 @@ $home = esc_url(home_url());
                 ?>
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
-                        <a class="news__list" href="<?php the_permalink(); ?>">
-                            <p class="news__list__date"><?php echo get_the_date("Y.m.d") ?></p>
-                            <h2 class="news__list__title"><?php the_title(); ?></h2>
+
+                        <a href="<?php the_permalink(); ?>" class="arc__news__content">
+                            <p class="date"><?php echo get_the_date("Y.m.d") ?></p>
+                            <h2><?php the_title() ?></h2>
                         </a>
                     <?php endwhile; ?>
                 <?php else : ?>

@@ -3,6 +3,7 @@
 $uri = get_template_directory_uri();
 $home = esc_url(home_url("/"));
 $archive = esc_url(home_url("/archivements/"));
+$news = esc_url(home_url("/news/"));
 $blog = esc_url(home_url("/blog/"));
 $contact = esc_url(home_url("/contact/"));
 
@@ -21,12 +22,14 @@ $contact = esc_url(home_url("/contact/"));
         $menu_items = array(
             'TOP' => $home,
             'ARCHIVES' => $archive,
+            'NEWS' => $news,
             'BLOG' => $blog,
             'CONTACT' => $contact,
         );
         $menu_items_jp = array(
             'TOP' => $home,
             'ARCHIVES' => $archive,
+            'NEWS' => $news,
             'BLOG' => $blog,
             'CONTACT' => $contact,
         );

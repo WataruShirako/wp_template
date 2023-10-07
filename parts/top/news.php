@@ -33,6 +33,7 @@ if ($the_query->have_posts()) :
                 <span class="news__close__line"></span>
             </div>
         </div>
+
 <?php
 
     endwhile;

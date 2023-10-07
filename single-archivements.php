@@ -7,7 +7,7 @@ $home = esc_url(home_url());
 
 <?php get_template_part("parts/header/header"); ?>
 
-<main data-barba="container" data-barba-namespace="single-archivements">
+<main>
 
     <div class="wrapper subp">
         <section class="single__fv">

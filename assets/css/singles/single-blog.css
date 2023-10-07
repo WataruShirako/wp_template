@@ -1,0 +1,11 @@
+body {
+  background: #181818;
+}
+
+main {
+  grid-column: 1/5;
+}
+
+.single__blog {
+  margin-top: 5rem;
+}

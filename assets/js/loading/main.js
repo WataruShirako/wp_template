@@ -1,7 +1,8 @@
 import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm';
+import { getData, saveData } from '../utils.js';
 
 export const loader = () => {
-  let textElements = ['Hi', 'Hi', "It's", 'Noras', 'Inc.', 'Inc.', ':)', ';)', ':)'];
+  let textElements = ['Hi', 'Hi', "It's", 'noras', 'inc.', 'inc.', ':)', ';)', ':)'];
   let textIndex = 0;
   let element = document.querySelector('.loader');
   let textDisplayElement = document.querySelector('.loader p');
@@ -10,24 +11,32 @@ export const loader = () => {
     MAIN: document.querySelector('main'),
     FOOTER: document.getElementById('footer'),
   };
+
   const NAV = document.getElementById('nav');
   const MENU = document.getElementById('menu');
   const TOGGLE = document.getElementById('toggle');
   const OVERLAYPATH = document.getElementById('overlayPath');
   const NEWSITEM = document.getElementById('top__news');
   const NEWSCLOSE = document.getElementById('news__close');
+  const NEWSCLICK = document.querySelector('.top__news__content');
 
   function newsClose() {
-    // NEWCLOSEがない場合はスルー
-    if (NEWSCLOSE) {
+    // NEWSがない場合はスルー
+    if (NEWSCLOSE && NEWSITEM) {
+      NEWSCLICK.addEventListener('click', () => {
+        saveData('newsClose', 'true');
+      });
       NEWSCLOSE.addEventListener('click', () => {
         gsap.to(NEWSITEM, {
-          duration: 2,
+          duration: 0.8,
           y: 200,
           opacity: 0,
-          ease: 'Expo.easeOut',
+          ease: 'Power2.easeOut',
           onComplete: () => {
             NEWSITEM.style.display = 'none';
+            // ローカルストレージに保存
+            localStorage.setItem('newsClose', 'true');
+            saveData('newsClose', 'true');
           },
         });
       });
@@ -153,16 +162,16 @@ export const loader = () => {
         },
         '>-=0.4'
       );
-    // NEWSITEMが存在する場合だけ、アニメーションを追加
-    if (NEWSITEM) {
+    // NEWSITEMが存在する場合だけ、アニメーションを追加、ローカルストレージに保存されている場合はスルー
+    if (NEWSITEM && !getData('newsClose')) {
       gsap.to(
         NEWSITEM,
         {
-          delay: 0.4,
-          duration: 2,
+          delay: 0.8,
+          duration: 0.8,
           y: 0,
           opacity: 1,
-          ease: 'Expo.easeIn',
+          ease: 'Expo.easeOut',
         },
         '>-=0.4'
       );

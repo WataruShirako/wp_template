@@ -11,10 +11,6 @@ $home = esc_url(home_url());
 
     <div class="wrapper subp">
         <section class="archivements">
-            <h2 class="section__title container">
-                Archivements
-                <span>制作実績</span>
-            </h2>
             <ul class="arc__container container">
                 <?php
 
