@@ -1,5 +1,5 @@
 body {
-  background: #1c1c1c;
+  background: #1e1e1e;
 }
 
 main {
@@ -11,7 +11,7 @@ aside {
 }
 
 header {
-  background: #1c1c1c;
+  background: #1e1e1e;
   border-bottom: rgba(238, 238, 238, 0.6) 1px solid;
 }
 
@@ -21,7 +21,7 @@ header[aria-hidden='true'] {
 }
 
 .wrapper {
-  margin-top: 5rem;
+  margin-top: 6.5rem;
 }
 
 a {
@@ -68,7 +68,6 @@ aside .arc__blog__category {
   font-size: medium;
   letter-spacing: 1px;
   font-weight: 600;
-  color: #eee;
   transition: all 0.3s ease;
 }
 
@@ -123,7 +122,6 @@ aside .arc__blog__category {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  color: #eee;
   opacity: 0;
   transition: all 0.3s ease;
   font-size: 13px;
@@ -134,7 +132,7 @@ aside .arc__blog__category {
   transition: all 0.3s ease;
 }
 
-.blog__list__img__wrapper:hover img {
+.blog__list__img__wrapper:hover .blog__thumbnail {
   scale: 1.1;
   filter: blur(4px);
 }
@@ -142,6 +140,27 @@ aside .arc__blog__category {
 .blog__list__img__wrapper:hover .mask,
 .blog__list__img__wrapper:hover .caption {
   opacity: 1;
+}
+
+.blog__list__new {
+  position: relative;
+}
+
+.blog__list__new .blog__list__new__img__wrapper::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(12, 12, 12, 0.6);
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.blog__list__new:hover::after {
+  background: rgba(12, 12, 12, 0.8);
 }
 
 .blog__thumbnail {
@@ -183,6 +202,7 @@ aside .arc__blog__category {
   padding-bottom: 2.5rem;
   margin-bottom: 2.5rem;
   border-bottom: rgba(238, 238, 238, 0.6) 1px solid;
+  position: relative;
 }
 
 .blog__list__new__img__wrapper {
@@ -201,6 +221,14 @@ aside .arc__blog__category {
   line-height: 1.4;
   font-weight: 600;
   letter-spacing: 1.25px;
+}
+
+.blog__list__new__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 3%;
+  z-index: 1;
 }
 
 .blog__list__info__new__middle {
@@ -230,7 +258,6 @@ aside .arc__blog__category {
 }
 
 .blog__list__info__new__category {
-  color: #eee;
   font-size: 12px;
   font-weight: 600;
   padding: 8px;
@@ -249,19 +276,24 @@ aside .arc__blog__category {
   align-items: center;
   gap: 0.5rem;
   margin-top: 1rem;
+  z-index: 100;
 }
 
 .blog__list__info__new__bottom__avatar {
   border-radius: 9999px;
   overflow: hidden;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
+}
+
+.blog__list__info__new__bottom__avatar img {
+  width: 32px;
+  height: 32px;
 }
 
 .blog__list___info__new__bottom__name {
   font-weight: 500;
   font-size: 13px;
-  color: #eee;
   opacity: 0.6;
 }
 
@@ -284,7 +316,6 @@ aside .arc__blog__category {
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  color: #eee;
   opacity: 0;
   transition: all 0.3s ease;
   font-size: 13px;
@@ -295,7 +326,7 @@ aside .arc__blog__category {
   transition: all 0.3s ease;
 }
 
-.blog__list__new__img__wrapper:hover img {
+.blog__list__new__img__wrapper:hover .blog__thumbnail {
   scale: 1.1;
   filter: blur(4px);
 }
@@ -339,12 +370,12 @@ aside .arc__blog__category {
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  border: #eee 1px solid;
+  border: #dadada 1px solid;
 }
 
 .wp-pagenavi span.current {
-  background-color: #eee;
-  color: #1e1f1a;
+  background-color: #dadada;
+  color: #1e1e1e;
 }
 
 @media screen and (min-width: 640px) {
@@ -363,10 +394,17 @@ aside .arc__blog__category {
 }
 
 @media screen and (min-width: 1024px) {
+  body {
+    background: #1e1e1e;
+  }
+
   main {
     grid-column: 2/8;
   }
 
+  header {
+    background: #1e1e1e;
+  }
   aside {
     grid-column: 9/12;
   }
@@ -391,6 +429,12 @@ aside .arc__blog__category {
     /* padding-inline: 5%; */
   }
 
+  .blog__list__new__info__bottom__avatar,
+  .blog__list__new__info__bottom__avatar img {
+    height: 40px;
+    width: 40px;
+  }
+
   .blog__list__info__new__middle {
     flex-direction: row;
     align-items: center;
@@ -410,7 +454,7 @@ aside .arc__blog__category {
   }
 
   .blog__list__info__new__title {
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 1.25px;
     font-weight: 600;
   }
@@ -469,7 +513,6 @@ aside .arc__blog__category {
   }
 
   .blog__list__info__category {
-    color: #eee;
     font-size: 12px;
     font-weight: 600;
     padding: 8px;

@@ -1,5 +1,5 @@
     <script id="v-shader" type="x-shader/x-vertex">
-      varying vec2 vUv;
+        varying vec2 vUv;
       uniform float uTime;
 
 
@@ -10,7 +10,7 @@
           vec3 pos = position;
 
           // 横方向
-          float amp = 0.015; // 振幅
+          float amp = 0.115; // 振幅
           float freq = 0.015 * uTime; // 振動
 
           // 縦方向

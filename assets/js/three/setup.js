@@ -2,6 +2,8 @@ import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
 const canvasEl = document.getElementById('webgl-canvas');
 
+export { THREE };
+
 export const canvasSize = {
   w: window.innerWidth,
   h: window.innerHeight,
@@ -30,12 +32,16 @@ export function setupScene() {
   // レンダラーの比率とサイズ設定
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(canvasSize.w, canvasSize.h);
+  renderer.setClearColor(0x000000, 0);
 
   // カメラの位置設定
   camera.position.z = dist;
 
+  scene;
+
   // シーンにライトを追加
   scene.add(light);
+  // scene.background = new THREE.Color(0x2d2727);
 }
 
 // htmlとthree.jsの描画サイズを合わせる

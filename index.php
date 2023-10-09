@@ -21,16 +21,18 @@ $contact = esc_url(home_url("/contact/"));
             get_template_part("parts/shader/fShaderFv");
             ?>
             <div class="fv__inner">
-                <img class="fv__img" src="<?php echo $uri; ?>/assets/img/noras_inc.webp" />
-                <p class="fv__text">
-                    ノラスは、デジタルコンテンツ制作・開発<br class="sp" />を行う会社です。
-                </p>
+                <h1 class="fv__text__h1">NORAS INC.</h1>
+                <img class="fv__img" src="<?php echo $uri; ?>/assets/img/fv_img.webp" />
             </div>
+        </section>
+
+        <section>
+            <h2 class="about__text">ノラスは、能登半島の<br>デジタルコンテンツ制作会社です。</h2>
         </section>
 
         <section class="archivements">
             <h2 class="container section__title">
-                Archivements
+                Achivements
                 <span>制作事例</span>
             </h2>
             <ul class="arc__container container">
@@ -45,21 +47,21 @@ $contact = esc_url(home_url("/contact/"));
                 get_template_part("parts/shader/fShaderArc");
                 ?>
                 <?php if (have_posts()) : ?>
-                <?php while (have_posts()) : the_post(); ?>
-                <li class="arc__list">
-                    <div href="" class="arc__list__image__wrapper">
-                        <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('', ['class' => 'sh__img']); ?>
-                        <?php else : ?>
-                        <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" alt="デフォルト画像" />
-                        <?php endif; ?>
-                        <h3 class="arc__list__title"><?php the_title(); ?></h3>
-                        <p class="caption__text"><?php echo get_the_excerpt(); ?></p>
-                    </div>
-                </li>
-                <?php endwhile; ?>
+                    <?php while (have_posts()) : the_post(); ?>
+                        <li class="arc__list">
+                            <div href="" class="arc__list__image__wrapper">
+                                <?php if (has_post_thumbnail()) : ?>
+                                    <?php the_post_thumbnail('', ['class' => 'sh__img']); ?>
+                                <?php else : ?>
+                                    <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" alt="デフォルト画像" />
+                                <?php endif; ?>
+                                <h3 class="arc__list__title"><?php the_title(); ?></h3>
+                                <p class="caption__text"><?php echo get_the_excerpt(); ?></p>
+                            </div>
+                        </li>
+                    <?php endwhile; ?>
                 <?php else : ?>
-                <p>投稿はありません。</p>
+                    <p>投稿はありません。</p>
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
             </ul>
@@ -84,7 +86,6 @@ $contact = esc_url(home_url("/contact/"));
                 </div>
                 <div class="slider__content ">
                     <div id="slider__text">
-                        <div class="meta">Service</div>
                         <div id="slide-status">01</div>
                         <span data-slide-status="0">01</span>
                         <span data-slide-status="1">02</span>
@@ -104,6 +105,10 @@ $contact = esc_url(home_url("/contact/"));
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section>
+            <h2 class="about__text">Creative Studio in Noto Island</h2>
         </section>
 
     </div>

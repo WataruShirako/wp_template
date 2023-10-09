@@ -24,7 +24,7 @@ export class Fv {
     this.mesh.material.uniforms.uTime.value = offset;
 
     if (Math.abs(this.previousOffset - offset) > 50) {
-      console.log('Large Offset Change:', offset);
+      // console.log('Large Offset Change:', offset);
     }
     this.previousOffset = offset;
 

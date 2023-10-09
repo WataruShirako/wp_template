@@ -1,5 +1,4 @@
-import * as THREE from 'https://unpkg.com/three/build/three.module.js';
-import rawLoader from 'https://cdn.jsdelivr.net/npm/raw-loader@4.0.2/+esm';
+import { THREE } from './setup.js';
 import { loader, renderer } from './setup.js';
 import { addEvents } from './events.js';
 
@@ -13,6 +12,7 @@ export const createFvMesh = (img) => {
     uPlaneAspect: { value: img.clientWidth / img.clientHeight },
     uTime: { value: 0 },
     uOpacity: { value: 1 },
+    uAmp: { value: 0.115 },
   };
   const geo = new THREE.PlaneGeometry(1, 1, 100, 100);
   const mat = new THREE.ShaderMaterial({

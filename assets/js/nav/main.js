@@ -215,12 +215,8 @@ export const navigation = () => {
         '>-=0.4'
       );
   }
-
-  // タッチデバイスでは touchstart をトリガーにする
-  const clickTouchEvent = 'ontouchstart' in window ? 'touchstart' : 'click';
-
   // リスナー登録
-  TOGGLE.addEventListener(clickTouchEvent, () => {
+  TOGGLE.addEventListener('click', () => {
     if (TOGGLE.getAttribute('aria-expanded') === 'true') {
       menuClose();
       TOGGLE.textContent = 'MENU';

@@ -2,7 +2,6 @@
 ================================================ */
 footer {
   text-align: center;
-  color: #eee;
   width: 92%;
   margin: auto;
   padding-top: 2.5rem;
@@ -37,7 +36,6 @@ footer {
 }
 
 .footer__bottom {
-  color: #eee;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -108,6 +106,9 @@ footer {
     display: flex;
     max-width: 850px;
     margin-inline: auto;
+  }
+  .footer__bottom__content:first-of-type {
+    margin-top: 0;
   }
 
   .pc__footer__flex {

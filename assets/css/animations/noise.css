@@ -1,124 +1,87 @@
-.noise {
-  min-height: 120lvh; /* Fallback */
-  min-height: calc(var(--vh, 1lvh) * 100);
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.8;
-  position: fixed;
-  transition: all ease 3.3s;
-  overflow: visible;
-}
-
-.noise::before {
+body::after {
+  animation: noise 6s steps(10) infinite;
+  background-image: url('../../img/noise/noise.png');
+  background-repeat: repeat;
   content: '';
-  z-index: 0;
+  height: 300%;
+  left: -100%;
+  opacity: 0.06;
+  pointer-events: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120lvh;
-  background: url('../../img/noise-web.webp');
-  -webkit-animation: 90ms infinite noise;
-  animation: 90ms infinite noise;
-  opacity: 0.4;
-  transition: all ease 0.3s;
+  top: -100%;
+  transition: opacity 0.4s ease;
+  width: 300%;
+  will-change: transform;
+  z-index: 3;
 }
 
 @-webkit-keyframes noise {
-  0%,
-  100% {
-    background-position: 0 0;
+  0% {
+    transform: translate(20%, -15%);
   }
   10% {
-    background-position: -5% -10%;
+    transform: translate(-20%, -15%);
   }
   20% {
-    background-position: -15% 5%;
+    transform: translate(20%, -5%);
   }
   30% {
-    background-position: 7% -25%;
+    transform: translate(-20%, -5%);
   }
   40% {
-    background-position: 20% 25%;
+    transform: translate(20%, 5%);
   }
   50% {
-    background-position: -25% 10%;
+    transform: translate(-20%, 5%);
   }
   60% {
-    background-position: 15% 5%;
+    transform: translate(20%, 15%);
   }
   70% {
-    background-position: 0 15%;
+    transform: translate(-20%, 15%);
   }
   80% {
-    background-position: 25% 35%;
+    transform: translate(20%, 5%);
   }
   90% {
-    background-position: -10% 10%;
+    transform: translate(-20%, 5%);
+  }
+  100% {
+    transform: translate(20%, -5%);
   }
 }
 @keyframes noise {
-  0%,
-  100% {
-    background-position: 0 0;
+  0% {
+    transform: translate(20%, -15%);
   }
   10% {
-    background-position: -5% -10%;
+    transform: translate(-20%, -15%);
   }
   20% {
-    background-position: -15% 5%;
+    transform: translate(20%, -5%);
   }
   30% {
-    background-position: 7% -25%;
+    transform: translate(-20%, -5%);
   }
   40% {
-    background-position: 20% 25%;
+    transform: translate(20%, 5%);
   }
   50% {
-    background-position: -25% 10%;
+    transform: translate(-20%, 5%);
   }
   60% {
-    background-position: 15% 5%;
+    transform: translate(20%, 15%);
   }
   70% {
-    background-position: 0 15%;
+    transform: translate(-20%, 15%);
   }
   80% {
-    background-position: 25% 35%;
+    transform: translate(20%, 5%);
   }
   90% {
-    background-position: -10% 10%;
+    transform: translate(-20%, 5%);
   }
-}
-
-.noise__item1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120lvh;
-  opacity: 1;
-  background: url('../../img/horizonal.png'), rgba(0, 0, 0, 0.1);
-  background-blend-mode: multiply;
-  z-index: 0;
-}
-
-.noise__item2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120lvh;
-  opacity: 1;
-  background: url('../../img/line2.png'), rgba(0, 0, 0, 0.1);
-  background-blend-mode: exclusion;
-  z-index: -1;
-}
-
-.noise.error {
-  opacity: 1;
-}
-
-.noise.error::before {
-  opacity: 0.8;
+  100% {
+    transform: translate(20%, -5%);
+  }
 }

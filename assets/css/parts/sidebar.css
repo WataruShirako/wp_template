@@ -96,7 +96,7 @@
 .search__form button .search__button__icon {
   width: 24px;
   height: 24px;
-  stroke: #eee;
+  stroke: #dadada;
 }
 
 /* サイドバーの方は折り返し */
@@ -118,7 +118,6 @@ aside .arc__blog__category {
   font-size: medium;
   letter-spacing: 1px;
   font-weight: 600;
-  color: #eee;
   transition: all 0.3s ease;
 }
 

@@ -9,15 +9,11 @@ $contact = esc_url(home_url("/contact/"));
 
 ?>
 
-<button id="toggle" class="hamburger" type="button" aria-label="メニューを開く" aria-controls="nav"
-    aria-expanded="false">MENU</button>
+<button id="toggle" class="hamburger" type="button" aria-label="メニューを開く" aria-controls="nav" aria-expanded="false">MENU</button>
 
 <nav id="nav" class="nav" aria-hidden="true">
 
     <ul id="menu" class="menu nav__list">
-        <video class="video" webkit-playsinline playsinline muted autoplay loop>
-            <source src="<?php echo $uri; ?>/assets/videos/bg-noise.mp4" type="video/mp4">
-        </video>
         <?php
         $menu_items = array(
             'TOP' => $home,
@@ -35,11 +31,11 @@ $contact = esc_url(home_url("/contact/"));
         );
         foreach ($menu_items as $name => $link) :
         ?>
-        <li class="nav__list__li">
-            <a href="<?php echo $link; ?>" class="header__nav__list__item" data-hover-text="<?php echo $name; ?>">
-                <?php echo $name; ?>
-            </a>
-        </li>
+            <li class="nav__list__li">
+                <a href="<?php echo $link; ?>" class="header__nav__list__item" data-hover-text="<?php echo $name; ?>">
+                    <?php echo $name; ?>
+                </a>
+            </li>
         <?php endforeach; ?>
     </ul>
 

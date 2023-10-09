@@ -30,6 +30,7 @@ export const slideImgArray = [];
 // 毎フレーム呼び出す
 export const loop = () => {
   requestAnimationFrame(loop);
+  // composer.render();
 
   updateScroll();
 

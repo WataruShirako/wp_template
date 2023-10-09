@@ -25,7 +25,6 @@
         float b = texture2D(uTexture, fixedUv).b;
         vec3 texture = vec3(r, g, b);
 
-
         gl_FragColor = vec4(texture, uOpacity);
       }
 </script>

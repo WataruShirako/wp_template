@@ -1,5 +1,5 @@
 .news__container {
-  margin-top: 5rem;
+  margin-top: 6.5rem;
   padding-bottom: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
