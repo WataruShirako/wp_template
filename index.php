@@ -9,42 +9,34 @@ $contact = esc_url(home_url("/contact/"));
 <?php get_template_part("parts/header/header"); ?>
 <?php echo get_template_part("parts/header/loader") ?>
 
-<main data-barba="container" data-barba-namespace="index">
+<main>
 
     <?php echo get_template_part("/parts/top/news") ?>
 
     <div class="wrapper">
         <section class="fv">
-            <!-- fv用のシェーダー -->
-            <?php
-            get_template_part("parts/shader/vShaderFv");
-            get_template_part("parts/shader/fShaderFv");
-            ?>
             <div class="fv__inner">
-                <h1 class="fv__text__h1">NORAS INC.</h1>
+                <h1 class="fv__text__h1">
+                    <span>N</span><span>o</span><span>r</span><span>a</span><span>s</span><span>&nbsp;</span><span>I</span><span>n</span><span>c</span><span>.</span>
+                </h1>
                 <img class="fv__img" src="<?php echo $uri; ?>/assets/img/fv_img.webp" />
             </div>
-        </section>
-
-        <section>
-            <h2 class="about__text">ノラスは、能登半島の<br>デジタルコンテンツ制作会社です。</h2>
+            <div class="mouse"></div>
         </section>
 
         <section class="archivements">
             <h2 class="container section__title">
-                Achivements
-                <span>制作事例</span>
+                Achivement
             </h2>
             <ul class="arc__container container">
                 <!-- imagePlane用のシェーダー -->
                 <?php
                 $args = array(
-                    'post_type' => 'archivements',
+                    'post_type' => 'achivement',
                     'posts_per_page' => 3 //表示件数（-1で全ての記事を表示）
                 );
                 query_posts($args);
-                get_template_part("parts/shader/vShaderArc");
-                get_template_part("parts/shader/fShaderArc");
+
                 ?>
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
@@ -69,8 +61,7 @@ $contact = esc_url(home_url("/contact/"));
 
         <section class="services">
             <h2 class="container section__title">
-                Services
-                <span>事業内容</span>
+                Service
             </h2>
             <div id="slider" class="container">
                 <!-- slider用のシェーダー -->
@@ -107,11 +98,12 @@ $contact = esc_url(home_url("/contact/"));
             </div>
         </section>
 
-        <section>
-            <h2 class="about__text">Creative Studio in Noto Island</h2>
-        </section>
-
     </div>
 </main>
+
+<?php
+get_template_part("parts/shader/vShaderArc");
+get_template_part("parts/shader/fShaderArc");
+?>
 
 <?php get_template_part("parts/footer/footer"); ?>

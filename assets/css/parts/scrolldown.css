@@ -1,0 +1,42 @@
+.mouse {
+  width: 25px;
+  height: 40px;
+  border-radius: 13px;
+  border: 1px solid #dadada;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.mouse::before {
+  content: '';
+  width: 3px;
+  height: 5px;
+  background: #dadada;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation: scrollDown 1.2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  70%,
+  90% {
+    transform: translate(-50%, 100%);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .mouse {
+    bottom: 3%;
+  }
+}

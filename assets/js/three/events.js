@@ -1,4 +1,4 @@
-import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm';
+import { gsap } from '../event.js';
 
 // スライダーのイベント
 export const addEvents = (mat, sliderImages) => {

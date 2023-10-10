@@ -17,7 +17,6 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
-  letter-spacing: 2px;
   transition: all 0.3s ease;
 }
 
@@ -102,9 +101,53 @@
 
 .nav__list__li,
 .header__nav__list__item {
-  font-size: 2rem;
-  font-weight: 900;
-  color: transparent !important;
-  text-shadow: 1px 1px 2.5px #dadada;
-  font-family: 'Helvetiva', sans-serif;
+  font-size: 15vw;
+  font-weight: 600;
+  font-family: 'moret', sans-serif;
+}
+
+.header__nav {
+  opacity: 0.6;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  mix-blend-mode: difference;
+  letter-spacing: 4px;
+  cursor: pointer;
+  padding: 20px;
+  user-select: none;
+  transition: all 0.3s ease;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999999;
+}
+
+.header__nav span {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.header__nav:hover {
+  opacity: 1;
+}
+
+.header__nav:hover .nav__line {
+  rotate: 45deg;
+}
+
+.header__nav__list__item {
+  opacity: 0.6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+@media screen and (min-width: 640px) {
+  .header__nav__list__item {
+    font-size: 4rem;
+  }
 }

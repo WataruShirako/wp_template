@@ -1,16 +1,18 @@
-import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm';
+import { gsap } from '../event.js';
 import { getData, saveData } from '../utils.js';
+import { textReveal } from './textReveal.js';
 
 export const loader = () => {
   let textElements = [
-    'creative',
-    'creative',
-    'creative',
+    'country',
+    'country',
+    'country',
+    'side',
+    '2.0',
+    '2.0',
     '🔥',
-    'content',
-    'every',
-    'single',
-    'day',
+    'we',
+    'found',
     '🔥',
   ];
   let textIndex = 0;
@@ -22,17 +24,12 @@ export const loader = () => {
     FOOTER: document.getElementById('footer'),
   };
 
-  const HTML = document.querySelector('html');
-  const BODY = document.querySelector('body');
-  const CANVAS = document.querySelector('.webgl-canvas');
-  const NAV = document.getElementById('nav');
   const MENU = document.getElementById('menu');
   const TOGGLE = document.getElementById('toggle');
   const OVERLAYPATH = document.getElementById('overlayPath');
   const NEWSITEM = document.getElementById('top__news');
   const NEWSCLOSE = document.getElementById('news__close');
   const NEWSCLICK = document.querySelector('.top__news__content');
-  console.log(CANVAS);
 
   function updateText() {
     if (textIndex === textElements.length) {
@@ -53,6 +50,7 @@ export const loader = () => {
     // NEWSがない場合はスルー
     if (NEWSCLOSE && NEWSITEM) {
       NEWSCLICK.addEventListener('click', () => {
+        NEWSITEM.style.display = 'none';
         saveData('newsClose', 'true');
       });
       NEWSCLOSE.addEventListener('click', () => {
@@ -72,10 +70,30 @@ export const loader = () => {
     }
   }
 
-  function loading() {
+  function completeTextDisplay() {
+    const loadingTimeout = setTimeout(() => {
+      // 5秒後に実行される処理
+      console.error('Loading timeout!');
+      forceEndLoading();
+    }, 5000); // 5000ミリ秒 = 5秒
+    loading(loadingTimeout);
+    gsap.to(element, {
+      delay: 0.4,
+      onStart: () => {
+        textReveal();
+      },
+      onComplete: () => {
+        // CANVAS.classList.add('loaded');
+        element.style.display = 'none';
+      },
+    });
+  }
+
+  function loading(loadingTimeout) {
     // newsがある場合は、アニメーションを追加
-    if (NEWSITEM) {
+    if (NEWSITEM && !getData('newsClose')) {
       gsap.set(NEWSITEM, {
+        display: 'block',
         y: 200,
         opacity: 0,
       });
@@ -164,6 +182,9 @@ export const loader = () => {
         {
           duration: 0.25,
           opacity: 0,
+          onComplete: () => {
+            clearTimeout(loadingTimeout);
+          },
         },
         '>-=0.4'
       );
@@ -183,15 +204,8 @@ export const loader = () => {
     }
   }
 
-  function completeTextDisplay() {
-    loading();
-    gsap.to(element, {
-      delay: 0.4,
-      onComplete: () => {
-        CANVAS.classList.add('loaded');
-        element.style.display = 'none';
-      },
-    });
+  function forceEndLoading() {
+    element.style.display = 'none';
   }
 
   updateText();

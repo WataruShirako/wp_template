@@ -16,5 +16,11 @@
 .loader p {
   font-size: 2rem;
   font-weight: 900;
-  filter: blur(1px);
+  font-family: 'moret';
+}
+
+.fv__text__h1 span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(50px);
 }

@@ -57,3 +57,29 @@ export const makeTransparent = (mesh) => {
   mesh.material.transparent = true;
   mesh.material.opacity = 0;
 };
+
+// fvメッシュのampをウインドウ調整
+export const getAmpValueFV = (ww) => {
+  if (ww <= 640) {
+    return 0.165;
+  } else if (ww <= 960) {
+    return 0.125;
+  } else if (ww <= 1540) {
+    return 0.105;
+  } else {
+    return 0.075;
+  }
+};
+
+// fvメッシュのampをウインドウ調整
+export const getAmpValueArc = (ww) => {
+  if (ww <= 640) {
+    return 0.165;
+  } else if (ww <= 960) {
+    return 0.125;
+  } else if (ww <= 1540) {
+    return 0.105;
+  } else {
+    return 0.075;
+  }
+};

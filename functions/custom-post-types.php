@@ -21,11 +21,11 @@
     function create_post_type_arc()
     {
         register_post_type(
-            'archivements', // 投稿タイプ名の定義
+            'achivement', // 投稿タイプ名の定義
             array(
                 'labels' => array(
                     'name' => __('制作事例'), // 表示する投稿タイプ名
-                    'singular_name' => __('archivements')
+                    'singular_name' => __('achivement')
                 ),
                 'public' => true,
                 'menu_position' => 5,

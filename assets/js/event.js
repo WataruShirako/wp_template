@@ -1,5 +1,7 @@
 import gsap from 'https://cdn.jsdelivr.net/npm/gsap@3.12.2/+esm';
 
+export { gsap };
+
 // ページ遷移アニメーション
 export const pageTrantition = () => {
   const OVERLAYPATH = document.getElementById('overlayPath');
@@ -44,5 +46,14 @@ export const pageTrantition = () => {
 export const pageTrantitionEnd = () => {
   window.addEventListener('load', () => {
     document.documentElement.classList.add('loaded');
+    resetTransition();
   });
 };
+
+function resetTransition() {
+  const OVERLAYPATH = document.getElementById('overlayPath');
+
+  gsap.set(OVERLAYPATH, {
+    attr: { d: 'M 0 100 V 100 Q 50 100 100 100 V 100 z' },
+  });
+}

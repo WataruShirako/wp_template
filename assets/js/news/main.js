@@ -12,6 +12,7 @@ export function newsClose() {
   if (NEWSCLOSE && NEWSITEM) {
     NEWSCLICK.addEventListener('click', () => {
       saveData('newsClose', 'true');
+      NEWSITEM.style.display = 'none';
     });
     NEWSCLOSE.addEventListener('click', () => {
       gsap.to(NEWSITEM, {

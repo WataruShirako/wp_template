@@ -1,6 +1,7 @@
 import { THREE } from './setup.js';
 import { loader, renderer } from './setup.js';
 import { addEvents } from './events.js';
+import { getAmpValueFV } from './helpers.js';
 
 // FVメッシュ
 export const createFvMesh = (img) => {
@@ -12,13 +13,20 @@ export const createFvMesh = (img) => {
     uPlaneAspect: { value: img.clientWidth / img.clientHeight },
     uTime: { value: 0 },
     uOpacity: { value: 1 },
-    uAmp: { value: 0.115 },
+    uAmp: { value: getAmpValueFV(window.innerWidth) },
+    uFreq: { value: 0.015 },
+    uTens: { value: -0.00075 },
   };
   const geo = new THREE.PlaneGeometry(1, 1, 100, 100);
   const mat = new THREE.ShaderMaterial({
     uniforms,
-    vertexShader: document.getElementById('v-shader-fv').textContent,
-    fragmentShader: document.getElementById('f-shader-fv').textContent,
+    vertexShader: document.getElementById('v-shader').textContent,
+    fragmentShader: document.getElementById('f-shader').textContent,
+  });
+
+  // ウィンドウサイズが変更されたときに動的に uAmp を更新
+  window.addEventListener('resize', () => {
+    uniforms.uAmp.value = getAmpValueFV(window.innerWidth);
   });
 
   const mesh = new THREE.Mesh(geo, mat);
@@ -34,7 +42,10 @@ export const createMesh = (img) => {
     uImageAspect: { value: img.naturalWidth / img.naturalHeight },
     uPlaneAspect: { value: img.clientWidth / img.clientHeight },
     uTime: { value: 0 },
-    uOpacity: { value: 1.0 },
+    uOpacity: { value: 1 },
+    uAmp: { value: 0.055 },
+    uFreq: { value: 0.025 },
+    uTens: { value: -0.00175 },
   };
   const geo = new THREE.PlaneGeometry(1, 1, 100, 100);
   const mat = new THREE.ShaderMaterial({

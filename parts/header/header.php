@@ -2,8 +2,8 @@
 
 $uri = get_template_directory_uri();
 $home = esc_url(home_url("/"));
-$archive = esc_url(get_post_type_archive_link('archivements'));
-$blog = esc_url(get_post_type_archive_link('blog'));
+$archive = esc_url(home_url("/achivement/"));
+$blog = esc_url(home_url("/blog/"));
 $contact = esc_url(home_url("/contact/"));
 
 ?>
@@ -17,40 +17,6 @@ $contact = esc_url(home_url("/contact/"));
     <meta name="description" content="<?php echo wp_get_document_title(); ?>">
     <link rel="shortcut icon" href="<?php echo $uri; ?>/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $uri; ?>/assets/img/favicon.png" />
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/animations/loading.css" />
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/animations/noise.css" />
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/main.css" />
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/parts/header.css" />
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/parts/navigation.css" />
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/parts/footer.css" />
-
-    <!-- 404ページの場合 -->
-    <?php if (is_404()) : ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/pages/page-404.css" />
-    <?php endif; ?>
-    <!-- アーカイブニュースの場合 -->
-    <?php if (is_post_type_archive('news')) : ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/archives/archive-news.css" />
-    <?php endif; ?>
-    <!-- アーカイブ実績の場合 -->
-    <?php if (is_post_type_archive('archivements')) : ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/archives/archive-archivements.css" />
-    <?php endif; ?>
-    <!-- シングルページの場合すべて -->
-    <?php if (is_single()) : ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/singles/single-archivements.css" />
-    <?php endif; ?>
-    <!-- シングルnewsページの場合 -->
-    <?php if (is_single() && 'news' == get_post_type()) : ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/singles/single-news.css" />
-    <?php endif; ?>
-    <!-- シングルarchivementsページの場合 -->
-    <?php if (is_single() && 'archivements' == get_post_type()) : ?>
-        <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/singles/single-archivements.css" />
-    <?php endif; ?>
-
-
-    <link rel="stylesheet" href="<?php echo $uri; ?>/assets/css/pages/page-contact.css" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
     <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
     <script defer src="<?php echo $uri; ?>/assets/js/index.js" type="module"></script>

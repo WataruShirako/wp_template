@@ -1,7 +1,9 @@
     <script id="v-shader" type="x-shader/x-vertex">
-        varying vec2 vUv;
+      varying vec2 vUv;
       uniform float uTime;
-
+      uniform float uAmp;
+      uniform float uTens;
+      uniform float uFreq;
 
       float PI = 3.1415926535897932384626433832795;
 
@@ -10,13 +12,16 @@
           vec3 pos = position;
 
           // 横方向
-          float amp = 0.115; // 振幅
-          float freq = 0.015 * uTime; // 振動
+          float amp = uAmp;
+          float freq = uFreq * uTime;
 
           // 縦方向
-          float tens = -0.00075 * uTime; // 上下のテンション
+          float tens = uTens * uTime;
 
-          pos.x = pos.x + sin(pos.y * PI  * freq) * amp;
+          float sineWave = sin(pos.y * PI  * freq);
+
+          // smoothstep を使って sineWave の動きをイージング
+          pos.x = pos.x + smoothstep(-1.0, 3.0, sineWave) * amp;
           pos.y = pos.y + (cos(pos.x * PI) * tens);
 
           gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);

@@ -2,7 +2,7 @@
 
 $uri = get_template_directory_uri();
 $home = esc_url(home_url("/"));
-$archive = esc_url(home_url("/archivements/"));
+$archive = esc_url(home_url("/achivement/"));
 $news = esc_url(home_url("/news/"));
 $blog = esc_url(home_url("/blog/"));
 $contact = esc_url(home_url("/contact/"));
@@ -10,8 +10,7 @@ $contact = esc_url(home_url("/contact/"));
 ?>
 
 
-<button id="toggle" class="hamburger" type="button" aria-label="メニューを開く" aria-controls="nav"
-    aria-expanded="false">MENU</button>
+<button id="toggle" class="hamburger" type="button" aria-label="メニューを開く" aria-controls="nav" aria-expanded="false">MENU</button>
 
 <nav id="nav" class="nav" aria-hidden="true">
 
@@ -33,11 +32,11 @@ $contact = esc_url(home_url("/contact/"));
         );
         foreach ($menu_items as $name => $link) :
         ?>
-        <li class="nav__list__li">
-            <a href="<?php echo $link; ?>" class="header__nav__list__item" data-hover-text="<?php echo $name; ?>">
-                <?php echo $name; ?>
-            </a>
-        </li>
+            <li class="nav__list__li">
+                <a href="<?php echo $link; ?>" class="header__nav__list__item" data-hover-text="<?php echo $name; ?>">
+                    <?php echo $name; ?>
+                </a>
+            </li>
         <?php endforeach; ?>
     </ul>
 

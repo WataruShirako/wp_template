@@ -1,5 +1,5 @@
 <script id="f-shader" type="x-shader/x-fragment">
-    varying vec2 vUv;
+  varying vec2 vUv;
       uniform sampler2D uTexture;
       uniform float uImageAspect;
       uniform float uPlaneAspect;
