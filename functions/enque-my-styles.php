@@ -15,11 +15,9 @@
         // トップページ
         if (is_front_page()) {
             wp_enqueue_style('scrolldown-css', $uri . '/assets/css/parts/scrolldown.css');
-        }
-        // ブログページ以外
-        if (!is_post_type_archive('post') || !is_category() || !is_author()) {
             wp_enqueue_style('noise-css', $uri . '/assets/css/animations/noise.css');
         }
+
         // ブログページ
         if (is_post_type_archive('post') || is_category() || is_author()) {
             wp_enqueue_style('blog-archive-css', $uri . '/assets/css/archives/archive-blog.css');
