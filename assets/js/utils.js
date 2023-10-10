@@ -1,3 +1,5 @@
+import { gsap } from './event.js';
+
 // 100vhのガタ付き調整
 export const setFillHeight = () => {
   const vh = window.innerHeight * 0.01;
@@ -41,4 +43,14 @@ export const getData = (key, expirationTime = 24 * 60 * 60 * 1000) => {
   }
 
   return wrappedData.data;
+};
+
+// safari用ブラウザバック時にリロード
+export const reload = () => {
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+      // bfcache発動時の処理
+      window.location.reload();
+    }
+  });
 };
