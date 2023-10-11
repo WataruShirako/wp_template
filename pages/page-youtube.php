@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: YouTube Page
+*/
 
 $uri = get_template_directory_uri();
 $home = esc_url(home_url());
