@@ -1,4 +1,5 @@
 <?php
+
 // カテゴリにカラーを追加
 function add_category_field()
 {

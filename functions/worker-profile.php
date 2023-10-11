@@ -1,20 +1,20 @@
 <?php
 
+// ユーザープロフィールに項目を追加
+
 function custom_user_profile_fields($user)
 {
 ?>
-<h3>追加ユーザー情報</h3>
-<table class="form-table">
-    <tr>
-        <th><label for="department">担当部署</label></th>
-        <td>
-            <input type="text" name="department" id="department"
-                value="<?php echo esc_attr(get_the_author_meta('department', $user->ID)); ?>"
-                class="regular-text" /><br />
-            <span class="description">あなたの担当部署を入力してください(UIデザイナー, フロントエンドエンジニア など)</span>
-        </td>
-    </tr>
-</table>
+    <h3>追加ユーザー情報</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="department">担当部署</label></th>
+            <td>
+                <input type="text" name="department" id="department" value="<?php echo esc_attr(get_the_author_meta('department', $user->ID)); ?>" class="regular-text" /><br />
+                <span class="description">あなたの担当部署を入力してください(UIデザイナー, フロントエンドエンジニア など)</span>
+            </td>
+        </tr>
+    </table>
 <?php
 }
 add_action('show_user_profile', 'custom_user_profile_fields');

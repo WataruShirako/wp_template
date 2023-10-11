@@ -11,7 +11,6 @@ $home = esc_url(home_url());
 
     <div class="wrapper subp">
         <section class="archivements">
-            <div class="" style="margin-top: 5rem;"></div>
             <ul class="arc__container container">
                 <!-- imagePlane用のシェーダー -->
                 <?php
@@ -31,7 +30,7 @@ $home = esc_url(home_url());
                                 <?php else : ?>
                                     <img src="<?php bloginfo('template_url'); ?>/img/noimage.gif" alt="デフォルト画像" />
                                 <?php endif; ?>
-                                <h3 class="arc__list__title"><?php the_title(); ?></h3>
+                                <h2 class="arc__list__title"><?php the_title(); ?></h2>
                                 <p class="caption__text"><?php echo get_the_excerpt(); ?></p>
                             </div>
                         </li>

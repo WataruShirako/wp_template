@@ -1,0 +1,17 @@
+.arc__container {
+  margin-top: 0;
+}
+
+.arc__list__image__wrapper {
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.arc__list__image__wrapper img {
+  transition: all 0.3s ease;
+}
+
+.arc__list__image__wrapper:hover img {
+  opacity: 0.6;
+  scale: 1.1;
+}

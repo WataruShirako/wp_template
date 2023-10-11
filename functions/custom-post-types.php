@@ -1,4 +1,5 @@
  <?php
+
     // デフォルトの投稿タイプにアーカイブページを追加
     add_filter('register_post_type_args', function ($args, $post_type) {
         if ('post' == $post_type) {

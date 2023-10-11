@@ -2,3 +2,18 @@
   margin-top: 8rem;
   padding-bottom: 2.5rem;
 }
+
+.arc__list__title {
+  margin-top: 1rem;
+  font-size: large;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.caption__text {
+  margin-top: 0.5rem;
+}
+
+.arc__list__image__wrapper img {
+  width: 100%;
+}
