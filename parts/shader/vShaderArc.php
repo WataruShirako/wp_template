@@ -1,5 +1,5 @@
     <script id="v-shader" type="x-shader/x-vertex">
-      varying vec2 vUv;
+        varying vec2 vUv;
       uniform float uTime;
       uniform float uAmp;
       uniform float uTens;

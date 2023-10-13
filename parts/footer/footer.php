@@ -2,8 +2,8 @@
 
 $uri = get_template_directory_uri();
 $home = esc_url(home_url("/"));
-$archive = esc_url(get_post_type_archive_link('archivements'));
-$blog = esc_url(get_post_type_archive_link('blog'));
+$archive = esc_url(home_url("/achievement/"));
+$blog = esc_url(home_url("/blog/"));
 $contact = esc_url(home_url("/contact/"));
 $news = esc_url(home_url("/news/"));
 
@@ -43,7 +43,7 @@ $news = esc_url(home_url("/news/"));
             </p>
         </div>
         <nav class="footer__bottom">
-            <div class="footer__bottom__content">
+            <!-- <div class="footer__bottom__content">
                 <p class="footer__bottom__content__title">事業内容</p>
                 <ul>
                     <li>
@@ -56,16 +56,19 @@ $news = esc_url(home_url("/news/"));
                         <div href=''>- 映像制作</div>
                     </li>
                 </ul>
-            </div>
-            <div class="footer__bottom__content">
+            </div> -->
+            <!-- <div class="footer__bottom__content">
                 <p class="footer__bottom__content__title">展開サービス</p>
                 <ul>
+                    <li>
+                        <div href=''>- 古民家のらり</div>
+                    </li>
                     <li>
                         <div href=''>- Sabak</div>
                     </li>
                 </ul>
-            </div>
-            <div class="footer__bottom__content">
+            </div> -->
+            <!-- <div class="footer__bottom__content">
                 <p class="footer__bottom__content__title">会社情報</p>
                 <ul>
                     <li>
@@ -81,7 +84,7 @@ $news = esc_url(home_url("/news/"));
                         <div href=''>- アクセス</div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <ul class="footer__bottom__content">
                 <li class="footer__bottom__content__title"><a href='<?php echo $blog; ?>' class="footer__bottom__content__title">ブログ</a>
                 </li>

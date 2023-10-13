@@ -23,7 +23,7 @@ footer {
 }
 
 .footer__top__address {
-  margin-top: 1rem;
+  margin-block: 1rem;
   opacity: 0.6;
   font-size: 13px;
   line-height: 1.4;

@@ -83,3 +83,29 @@ export const getAmpValueArc = (ww) => {
     return 0.075;
   }
 };
+
+// fvメッシュのfreqをウインドウ調整
+export const getFreqValueArc = (ww) => {
+  if (ww <= 640) {
+    return 0.015;
+  } else if (ww <= 960) {
+    return 0.01;
+  } else if (ww <= 1540) {
+    return 0.008;
+  } else {
+    return 0.005;
+  }
+};
+
+// fvメッシュのampをウインドウ調整
+export const getTensValueArc = (ww) => {
+  if (ww <= 640) {
+    return -0.00075;
+  } else if (ww <= 960) {
+    return -0.00045;
+  } else if (ww <= 1540) {
+    return -0.00015;
+  } else {
+    return -0.00007;
+  }
+};

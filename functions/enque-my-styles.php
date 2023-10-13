@@ -39,8 +39,8 @@
             wp_enqueue_style('single-news-css', $uri . '/assets/css/singles/single-news.css');
         }
         // アーカイブページ
-        if (is_post_type_archive('achivement') || is_page('youtube')) {
-            wp_enqueue_style('archive-achivement-css', $uri . '/assets/css/archives/archive-achivement.css');
+        if (is_post_type_archive('achievement') || is_page('youtube')) {
+            wp_enqueue_style('archive-achievement-css', $uri . '/assets/css/archives/archive-achievement.css');
         }
         // youtubeページ
         if (is_page('youtube')) {
@@ -48,7 +48,7 @@
         }
         // 実績シングルページ
         if (is_single() && 'achivement' == get_post_type()) {
-            wp_enqueue_style('single-achivement-css', $uri . '/assets/css/singles/single-achivement.css');
+            wp_enqueue_style('single-achievement-css', $uri . '/assets/css/singles/single-achievement.css');
         }
         // コンタクトページ
         if (is_page('contact')) {

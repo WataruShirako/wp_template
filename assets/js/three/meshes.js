@@ -1,7 +1,7 @@
 import { THREE } from './setup.js';
 import { loader, renderer } from './setup.js';
 import { addEvents } from './events.js';
-import { getAmpValueFV } from './helpers.js';
+import { getAmpValueFV, getFreqValueArc, getTensValueArc } from './helpers.js';
 
 // FVメッシュ
 export const createFvMesh = (img) => {
@@ -43,9 +43,9 @@ export const createMesh = (img) => {
     uPlaneAspect: { value: img.clientWidth / img.clientHeight },
     uTime: { value: 0 },
     uOpacity: { value: 1 },
-    uAmp: { value: 0.055 },
-    uFreq: { value: 0.025 },
-    uTens: { value: -0.00175 },
+    uAmp: { value: getAmpValueFV(window.innerWidth) },
+    uFreq: { value: getFreqValueArc(window.innerWidth) },
+    uTens: { value: getTensValueArc(window.innerWidth) },
   };
   const geo = new THREE.PlaneGeometry(1, 1, 100, 100);
   const mat = new THREE.ShaderMaterial({

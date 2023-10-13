@@ -10,12 +10,12 @@ $home = esc_url(home_url());
 <main class="archive">
 
     <div class="wrapper subp">
-        <section class="archivements">
+        <section class="achievement">
             <ul class="arc__container container">
                 <!-- imagePlane用のシェーダー -->
                 <?php
                 $args = array(
-                    'post_type' => 'achivement',
+                    'post_type' => 'achievement',
                     'posts_per_page' => 3 //表示件数（-1で全ての記事を表示）
                 );
                 query_posts($args);
@@ -36,7 +36,7 @@ $home = esc_url(home_url());
                         </li>
                     <?php endwhile; ?>
                 <?php else : ?>
-                    <p>投稿はありません。</p>
+                    <p></p>
                 <?php endif; ?>
                 <?php wp_reset_postdata(); ?>
             </ul>

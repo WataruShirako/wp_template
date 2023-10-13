@@ -22,11 +22,11 @@
     function create_post_type_arc()
     {
         register_post_type(
-            'achivement', // 投稿タイプ名の定義
+            'achievement', // 投稿タイプ名の定義
             array(
                 'labels' => array(
                     'name' => __('制作事例'), // 表示する投稿タイプ名
-                    'singular_name' => __('achivement')
+                    'singular_name' => __('achievement')
                 ),
                 'public' => true,
                 'menu_position' => 5,

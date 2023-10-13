@@ -6,13 +6,14 @@ export const loader = () => {
   let textElements = [
     'country',
     'country',
-    'country',
+    'side',
     'side',
     '2.0',
     '2.0',
     '🔥',
     'we',
-    'found',
+    'start',
+    'it',
     '🔥',
   ];
   let textIndex = 0;

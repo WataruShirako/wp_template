@@ -11,7 +11,8 @@ $news = esc_url(home_url("/news/"));
 ?>
 
 <svg class="overlay" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-    <path id="overlayPath" class="overlayPath" vector-effect="non-scaling-stroke" d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
+    <path id="overlayPath" class="overlayPath" vector-effect="non-scaling-stroke"
+        d="M 0 100 V 100 Q 50 100 100 100 V 100 z" />
 </svg>
 
 
@@ -40,8 +41,7 @@ $news = esc_url(home_url("/news/"));
             </p>
         </div>
         <nav class="footer__bottom">
-
-            <div class="footer__bottom__content">
+            <!-- <div class="footer__bottom__content">
                 <p class="footer__bottom__content__title">事業内容</p>
                 <ul>
                     <li>
@@ -54,16 +54,19 @@ $news = esc_url(home_url("/news/"));
                         <div href=''>- 映像制作</div>
                     </li>
                 </ul>
-            </div>
-            <div class="footer__bottom__content">
+            </div> -->
+            <!-- <div class="footer__bottom__content">
                 <p class="footer__bottom__content__title">展開サービス</p>
                 <ul>
+                    <li>
+                        <div href=''>- 古民家のらり</div>
+                    </li>
                     <li>
                         <div href=''>- Sabak</div>
                     </li>
                 </ul>
-            </div>
-            <div class="footer__bottom__content">
+            </div> -->
+            <!-- <div class="footer__bottom__content">
                 <p class="footer__bottom__content__title">会社情報</p>
                 <ul>
                     <li>
@@ -79,15 +82,19 @@ $news = esc_url(home_url("/news/"));
                         <div href=''>- アクセス</div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <ul class="footer__bottom__content">
-                <li class="footer__bottom__content__title"><a href='<?php echo $blog; ?>' class="footer__bottom__content__title">ブログ</a>
+                <li class="footer__bottom__content__title"><a href='<?php echo $blog; ?>'
+                        class="footer__bottom__content__title">ブログ</a>
                 </li>
-                <li class="footer__bottom__content__title"><a href='<?php echo $news; ?>' class="footer__bottom__content__title">お知らせ</a>
+                <li class="footer__bottom__content__title"><a href='<?php echo $news; ?>'
+                        class="footer__bottom__content__title">お知らせ</a>
                 </li>
-                <li class="footer__bottom__content__title"><a href='<?php echo $archive; ?>' class="footer__bottom__content__title">実績紹介</a>
+                <li class="footer__bottom__content__title"><a href='<?php echo $archive; ?>'
+                        class="footer__bottom__content__title">実績紹介</a>
                 </li>
-                <li class="footer__bottom__content__title"><a href='<?php echo $contact; ?>' class="footer__bottom__content__title">お問い合わせ</a>
+                <li class="footer__bottom__content__title"><a href='<?php echo $contact; ?>'
+                        class="footer__bottom__content__title">お問い合わせ</a>
                 </li>
             </ul>
         </nav>

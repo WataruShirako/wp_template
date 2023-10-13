@@ -23,12 +23,12 @@
         float r = texture2D(uTexture, fixedUv + offset).r;
         float g = texture2D(uTexture, fixedUv + offset * 0.5).g;
         float b = texture2D(uTexture, fixedUv).b;
-
+        
         // RGBをずらす（オフセットを追加する）
         r = mod(r + 0.0, 1.0); 
         g = mod(g + 0.0, 1.0);
         b = mod(b + 0.0, 1.0); 
-        
+
         vec3 texture = vec3(r, g, b);
 
         gl_FragColor = vec4(texture, uOpacity);

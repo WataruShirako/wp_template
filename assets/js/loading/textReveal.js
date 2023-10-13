@@ -37,7 +37,7 @@ export const textReveal = () => {
       CANVAS,
       {
         duration: 1,
-        opacity: 0.75,
+        opacity: 0.65,
         y: 0,
         filter: 'blur(0px)',
         ease: 'Power3.out',

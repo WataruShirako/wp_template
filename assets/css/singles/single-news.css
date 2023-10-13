@@ -1,11 +1,15 @@
 .wrapper {
-margin-top: 8rem;
+  margin-top: 8rem;
 }
 
 @media screen and (min-width: 640px) {
-.wrapper {
-margin-top: 8rem;
+  .wrapper {
+    margin-top: 8rem;
+  }
 }
+
+.single__news {
+  line-height: 1.8;
 }
 
 .single__news__title h1 {

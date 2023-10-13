@@ -4,8 +4,8 @@
 function youtube_search()
 {
     // YouTubeチャンネルのIDとAPIキーは安全な場所から取得
-    $youtube_id = getenv('YOUTUBE_ID');
-    $api_key = getenv('YOUTUBE_API_KEY');
+    $youtube_id = $_ENV['YOUTUBE_ID'];
+    $api_key = $_SERVER['YOUTUBE_API_KEY'];
 
     $num = 15;
     $order = 'date';

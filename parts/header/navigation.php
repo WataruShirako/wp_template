@@ -2,7 +2,7 @@
 
 $uri = get_template_directory_uri();
 $home = esc_url(home_url("/"));
-$archive = esc_url(home_url("/achivement/"));
+$archive = esc_url(home_url("/achievement/"));
 $news = esc_url(home_url("/news/"));
 $blog = esc_url(home_url("/blog/"));
 $contact = esc_url(home_url("/contact/"));

@@ -19,6 +19,7 @@ $youtube_data = youtube_search();
             <ul class="arc__container container">
 
                 <?php
+
                 foreach ((array)$youtube_data->items as $item) :
                     if ($item->id->kind === 'youtube#video') {
                         $video_id = $item->id->videoId;
