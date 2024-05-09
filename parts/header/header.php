@@ -1,10 +1,13 @@
 <?php
 
-$uri = get_template_directory_uri();
-$home = esc_url(home_url("/"));
-$archive = esc_url(home_url("/achivement/"));
-$blog = esc_url(home_url("/blog/"));
-$contact = esc_url(home_url("/contact/"));
+/**
+ * noras original theme
+ * @author: shirako
+ * @link: https://norasinc.jp
+ * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ */
+
+include get_template_directory() . "/inc/link.php";
 
 ?>
 <!DOCTYPE html>
@@ -17,40 +20,33 @@ $contact = esc_url(home_url("/contact/"));
     <meta name="description" content="<?php echo wp_get_document_title(); ?>">
     <link rel="shortcut icon" href="<?php echo $uri; ?>/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $uri; ?>/assets/img/favicon.png" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CArray.prototype.find%2CIntersectionObserver" crossorigin="anonymous" defer></script>
-    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-    <script defer src="<?php echo $uri; ?>/assets/js/index.js" type="module"></script>
+    <!-- <script defer src="<?php echo $uri; ?>/assets/js/index.js" type="module"></script> -->
     <?php wp_head(); ?>
-    <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-WBQF2GGV');
-    </script>
 </head>
 
-<body data-barba="wrapper">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBQF2GGV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
-    <header>
-        <div class="header__inner">
-            <div class="header__logo">
-                <a href="<?php echo $home; ?>">
-                    <img src="<?php echo $uri; ?>/assets/img/logo.svg" alt="ノラスのロゴ">
-                </a>
+<body>
+    <header class="ly_header hp_borderYellow">
+        <div class="bl_headerCont">
+            <a href="<?= $home; ?>" class="bl_header_logo">
+                noras template
+            </a>
+            <div class="bl_header_nav">
+                <ul class="bl_header_nav_ul">
+                    <li class="bl_header_nav_ul_li"><a href='<?= $home  ?>'>TOP</a></li>
+                    <li class="bl_header_nav_ul_li"><a href='<?= $service; ?>'>サービス</a></li>
+                    <li class="bl_header_nav_ul_li"><a href='<?= $column  ?>'>コラム</a></li>
+                    <li class="bl_header_nav_ul_li"><a href='<?= $contact  ?>'>お問い合わせ</a></li>
+                </ul>
             </div>
+            <div class="sm_only">
+                <div class="el_humb  js_humb">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
     </header>
 
     <?php echo get_template_part("parts/header/navigation") ?>

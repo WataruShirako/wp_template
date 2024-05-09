@@ -1,42 +1,20 @@
 <?php
 
-$uri = get_template_directory_uri();
-$home = esc_url(home_url("/"));
-$archive = esc_url(home_url("/achievement/"));
-$news = esc_url(home_url("/news/"));
-$blog = esc_url(home_url("/blog/"));
-$contact = esc_url(home_url("/contact/"));
+/**
+ * noras original theme
+ * @author: shirako
+ * @link: https://norasinc.jp
+ * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
+ */
+
+include get_template_directory() . "/inc/link.php";
 
 ?>
 
-<button id="toggle" class="hamburger" type="button" aria-label="メニューを開く" aria-controls="nav" aria-expanded="false">MENU</button>
-
-<nav id="nav" class="nav" aria-hidden="true">
-
-    <ul id="menu" class="menu nav__list">
-        <?php
-        $menu_items = array(
-            'TOP' => $home,
-            'ACHIVEMENT' => $archive,
-            'NEWS' => $news,
-            'BLOG' => $blog,
-            'CONTACT' => $contact,
-        );
-        $menu_items_jp = array(
-            'TOP' => $home,
-            'ACHIVEMENT' => $archive,
-            'NEWS' => $news,
-            'BLOG' => $blog,
-            'CONTACT' => $contact,
-        );
-        foreach ($menu_items as $name => $link) :
-        ?>
-            <li class="nav__list__li">
-                <a href="<?php echo $link; ?>" class="header__nav__list__item" data-hover-text="<?php echo $name; ?>">
-                    <?php echo $name; ?>
-                </a>
-            </li>
-        <?php endforeach; ?>
+<nav>
+    <ul>
+        <li><a href=''></a></li>
+        <li><a href=''></a></li>
+        <li><a href=''></a></li>
     </ul>
-
 </nav>

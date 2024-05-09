@@ -1,15 +1,5 @@
-import { lenisInit } from './lenis/main.js';
-import { reload, setFillHeight } from './utils.js';
-import { threeInit } from './three/main.js';
-import { loader } from './loading/main.js';
-import { navigation } from './nav/main.js';
-import { pageTrantition, pageTrantitionEnd } from './event.js';
+// File: index.js
+// Description: /inc/enque-my-scripts.phpでこのファイルを読み込んで、/functions.phpで実行しています。
 
-loader();
-pageTrantition();
-pageTrantitionEnd();
-navigation();
-setFillHeight();
-lenisInit();
-threeInit();
-reload();
+// 全ページでコンソールに出ていれば、正しく読み込まれていることがわかります。
+console.log('Hello, world!');
