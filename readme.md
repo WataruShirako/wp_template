@@ -9,11 +9,11 @@
 
 ## 頻出プラグイン
 
-「Classic Editor」クラシックエディタの方がコードが書きやすい
-「Contact form 7」お問い合わせフォーム作成
-「All-in-One WP Security」セキュリティ強化
-「All-in-One WP Migration」WordPressデータ移行
-「WP-PageNavi」ブログのページネーション
-「Advanced Custom Fields」カスタムフィールド作成
-「Advanced Editor Tools」エディタの機能強化
-「HTML Editor Syntax Highlighter」管理画面内のエディタでコードが書きやすくなる
+1. 「Classic Editor」クラシックエディタの方がコードが書きやすい
+2. 「Contact form 7」お問い合わせフォーム作成
+3. 「All-in-One WP Security」セキュリティ強化
+4. 「All-in-One WP Migration」WordPressデータ移行
+5. 「WP-PageNavi」ブログのページネーション
+6. 「Advanced Custom Fields」カスタムフィールド作成
+7. 「Advanced Editor Tools」エディタの機能強化
+8. 「HTML Editor Syntax Highlighter」管理画面内のエディタでコードが書きやすくなる
