@@ -17,3 +17,12 @@
 6. 「Advanced Custom Fields」カスタムフィールド作成
 7. 「Advanced Editor Tools」エディタの機能強化
 8. 「HTML Editor Syntax Highlighter」管理画面内のエディタでコードが書きやすくなる
+
+## 固定ページの追加方法
+
+デフォルトのpage-contact.phpとpage-service.phpの場合で説明
+
+1. WordPress管理画面から、「固定ページ」→「新規固定ページを追加」
+2. スラッグ名contactの固定ページを追加したい場合は、ページスラッグ contact の固定ページを作成
+3. 作成画面中、固定ページテンプレートをcontactにすると、page-contact.phpに記載した内容が反映される。
+4. サイトに応じて、必要なスラッグ名で固定ページを作成する
