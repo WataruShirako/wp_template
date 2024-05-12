@@ -6,6 +6,8 @@
  * @link: https://norasinc.jp
  * @license: http://www.gnu.org/licenses/gpl-2.0.html GPL v2 or later
  */
+
+if (!defined('ABSPATH')) exit;
 include get_template_directory() . "/inc/link.php";
 
 // 最新の投稿を11件取得
